@@ -1,0 +1,1567 @@
+/* Custom Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Logo Animation */
+.logo-container {
+    animation: leafFloat 3s ease-in-out infinite;
+}
+
+@keyframes leafFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Nav Link Hover Effect */
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #16a34a;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Product Card Styles */
+.product-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.05);
+}
+
+.eco-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #16a34a;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* Button Hover Effects */
+button {
+    cursor: pointer;
+}
+
+/* Search Bar Focus Effect */
+input:focus {
+    transform: scale(1.02);
+    transition: transform 0.2s ease;
+}
+
+/* Cart Count Badge Animation */
+#cartCount {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-section p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.5rem;
+    }
+    
+    .hero-section p {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 320px) {
+    body {
+        font-size: 13px;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.25rem;
+        line-height: 1.3;
+    }
+    
+    .hero-section p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+    }
+    
+    .product-image {
+        height: 180px;
+    }
+    
+    .eco-badge {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+}
+
+/* Banner Slider Styles */
+.banner-slider {
+    width: 100%;
+    height: 600px;
+    position: relative;
+}
+
+.bannerSwiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    width: 100%;
+    height: 100%;
+}
+
+.slide-content {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+}
+
+.slide-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 0 20px;
+    max-width: 800px;
+}
+
+/* Swiper Navigation Buttons */
+.swiper-button-next,
+.swiper-button-prev {
+    color: white;
+    background: rgba(22, 163, 74, 0.8);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(22, 163, 74, 1);
+    transform: scale(1.1);
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Swiper Pagination */
+.swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background: white;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    background: #16a34a;
+    opacity: 1;
+    width: 30px;
+    border-radius: 6px;
+}
+
+/* Fade In Animation */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeInUp {
+    animation: fadeInUp 1s ease-out;
+}
+
+/* Responsive Banner */
+@media (max-width: 768px) {
+    .banner-slider {
+        height: 400px;
+    }
+    
+    .slide-text h1 {
+        font-size: 2rem;
+    }
+    
+    .slide-text p {
+        font-size: 1rem;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-slider {
+        height: 350px;
+    }
+    
+    .slide-text h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .banner-slider {
+        height: 280px;
+    }
+    
+    .slide-text h1 {
+        font-size: 1.125rem;
+        line-height: 1.3;
+        padding: 0 10px;
+    }
+    
+    .slide-text p {
+        font-size: 0.75rem;
+        line-height: 1.4;
+        padding: 0 10px;
+    }
+    
+    .swiper-button-next,
+    .swiper-button-prev {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        font-size: 12px;
+    }
+    
+    .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .swiper-pagination-bullet-active {
+        width: 20px;
+    }
+}
+
+/* Cart Sidebar Styles */
+.cart-sidebar {
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-sidebar.active {
+    right: 0;
+}
+
+.cart-sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 2px solid #e5e7eb;
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    color: white;
+}
+
+.cart-sidebar-header h3 {
+    color: white;
+    font-size: 1.25rem;
+}
+
+.cart-sidebar-header button {
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+.cart-sidebar-header button:hover {
+    transform: rotate(90deg);
+}
+
+.cart-sidebar-items {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+}
+
+.cart-sidebar-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.cart-sidebar-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.cart-sidebar-items::-webkit-scrollbar-thumb {
+    background: #16a34a;
+    border-radius: 3px;
+}
+
+.cart-sidebar-items::-webkit-scrollbar-thumb:hover {
+    background: #15803d;
+}
+
+.sidebar-cart-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    animation: slideInRight 0.3s ease-out;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-cart-item:hover {
+    background-color: #f9fafb;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.sidebar-item-image {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.sidebar-item-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sidebar-item-name {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.sidebar-item-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sidebar-item-quantity {
+    font-size: 0.75rem;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.cart-sidebar-footer {
+    padding: 1.5rem;
+    border-top: 2px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.empty-cart-sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 2rem;
+    text-align: center;
+}
+
+.empty-cart-sidebar i {
+    font-size: 4rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.empty-cart-sidebar h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #4b5563;
+    margin-bottom: 0.5rem;
+}
+
+.empty-cart-sidebar p {
+    color: #9ca3af;
+    font-size: 0.875rem;
+}
+
+/* Responsive Cart Sidebar */
+@media (max-width: 480px) {
+    .cart-sidebar {
+        width: 100%;
+        right: -100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .cart-sidebar-header {
+        padding: 1rem;
+    }
+    
+    .cart-sidebar-header h3 {
+        font-size: 1rem;
+    }
+    
+    .cart-sidebar-items {
+        padding: 0.5rem;
+    }
+    
+    .sidebar-cart-item {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+    
+    .sidebar-item-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .sidebar-item-name {
+        font-size: 0.75rem;
+    }
+    
+    .sidebar-item-price {
+        font-size: 0.75rem;
+    }
+    
+    .sidebar-item-quantity {
+        font-size: 0.625rem;
+        padding: 0.125rem 0.375rem;
+    }
+    
+    .cart-sidebar-footer {
+        padding: 1rem;
+    }
+    
+    .empty-cart-sidebar i {
+        font-size: 3rem;
+    }
+    
+    .empty-cart-sidebar h3 {
+        font-size: 1rem;
+    }
+    
+    .empty-cart-sidebar p {
+        font-size: 0.75rem;
+    }
+    
+    #viewCartBtn, #checkoutSidebarBtn {
+        font-size: 0.8rem;
+        padding: 0.625rem 1rem;
+    }
+}
+
+/* Cart button hover effect */
+#cartContainer:hover .cart-sidebar {
+    right: 0;
+}
+
+#cartContainer:hover ~ .sidebar-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Smooth animations for cart items */
+.sidebar-cart-item.removing {
+    animation: slideOutRight 0.3s ease-out forwards;
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+/* Price animation */
+#sidebarTotal {
+    transition: transform 0.2s ease;
+}
+
+#sidebarTotal.updated {
+    transform: scale(1.1);
+}
+
+
+/* Enhanced cart count badge animation */
+@keyframes popIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#cartCount.pop {
+    animation: popIn 0.3s ease-out;
+}
+
+/* Sidebar item entrance animation with stagger */
+.sidebar-cart-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.sidebar-cart-item:nth-child(2) {
+    animation-delay: 0.05s;
+}
+
+.sidebar-cart-item:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+.sidebar-cart-item:nth-child(4) {
+    animation-delay: 0.15s;
+}
+
+.sidebar-cart-item:nth-child(5) {
+    animation-delay: 0.2s;
+}
+
+/* Hover effect for sidebar items */
+.sidebar-cart-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-cart-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(22, 163, 74, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.sidebar-cart-item:hover::before {
+    left: 100%;
+}
+
+/* Button ripple effect */
+@keyframes ripple {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+#viewCartBtn, #checkoutSidebarBtn {
+    position: relative;
+    overflow: hidden;
+}
+
+#viewCartBtn::after, #checkoutSidebarBtn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+#viewCartBtn:active::after, #checkoutSidebarBtn:active::after {
+    width: 300px;
+    height: 300px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .cart-sidebar {
+        width: 90%;
+        right: -90%;
+    }
+    
+    .sidebar-cart-item {
+        padding: 0.75rem;
+    }
+    
+    .sidebar-item-image {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: 320px) {
+    .sidebar-cart-item .flex.items-center.gap-2 button {
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+
+/* Sidebar quantity controls styling */
+.sidebar-cart-item .flex.items-center.gap-2 button {
+    transition: all 0.2s ease;
+}
+
+.sidebar-cart-item .flex.items-center.gap-2 button:hover {
+    background-color: #16a34a;
+    color: white;
+    border-radius: 4px;
+}
+
+.sidebar-cart-item .flex.items-center.gap-2 button:active {
+    transform: scale(0.9);
+}
+
+/* Improved sidebar item layout */
+.sidebar-item-details {
+    min-width: 0; /* Allow text truncation */
+}
+
+/* Better spacing for sidebar footer buttons */
+#viewCartBtn, #checkoutSidebarBtn {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+}
+
+/* Smooth height transition for sidebar items */
+.sidebar-cart-item {
+    transition: all 0.3s ease;
+}
+
+/* Enhanced remove button in sidebar */
+.sidebar-cart-item button[onclick^="removeFromSidebar"] {
+    transition: all 0.2s ease;
+    padding: 0.25rem;
+    border-radius: 4px;
+}
+
+.sidebar-cart-item button[onclick^="removeFromSidebar"]:hover {
+    background-color: #fee2e2;
+    transform: scale(1.1);
+}
+
+/* Categories Section Styles */
+.category-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 1rem;
+    background: white;
+    border-radius: 16px;
+    border: 2px solid #e5e7eb;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Animated gradient background on hover */
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+}
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+/* Shine effect on hover */
+.category-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 30%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 70%
+    );
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+    z-index: 2;
+}
+
+.category-card:hover::after {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+}
+
+.category-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: #16a34a;
+    box-shadow: 0 16px 32px rgba(22, 163, 74, 0.25);
+}
+
+.category-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    z-index: 3;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.15);
+}
+
+.category-card:hover .category-icon-wrapper {
+    transform: scale(1.15) rotate(360deg);
+    background: white;
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.4);
+}
+
+.category-icon-wrapper i {
+    transition: all 0.4s ease;
+}
+
+.category-card:hover .category-icon-wrapper i {
+    color: #16a34a !important;
+    transform: scale(1.1);
+}
+
+.category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1f2937;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 3;
+    text-shadow: none;
+}
+
+.category-card:hover .category-title {
+    color: white;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+/* Category card animation on load */
+@keyframes categoryFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category-card {
+    animation: categoryFadeIn 0.6s ease-out;
+}
+
+.category-card:nth-child(1) { animation-delay: 0.1s; }
+.category-card:nth-child(2) { animation-delay: 0.2s; }
+.category-card:nth-child(3) { animation-delay: 0.3s; }
+.category-card:nth-child(4) { animation-delay: 0.4s; }
+.category-card:nth-child(5) { animation-delay: 0.5s; }
+.category-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Categories */
+@media (max-width: 768px) {
+    .category-card {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .category-icon-wrapper {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .category-icon-wrapper i {
+        font-size: 2rem !important;
+    }
+    
+    .category-title {
+        font-size: 0.875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-card {
+        padding: 1rem 0.5rem;
+    }
+    
+    .category-icon-wrapper {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .category-icon-wrapper i {
+        font-size: 1.5rem !important;
+    }
+    
+    .category-title {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .category-card {
+        padding: 0.75rem 0.375rem;
+    }
+    
+    .category-icon-wrapper {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 0.375rem;
+    }
+    
+    .category-icon-wrapper i {
+        font-size: 1.25rem !important;
+    }
+    
+    .category-title {
+        font-size: 0.625rem;
+    }
+}
+
+/* Global 320px Responsive Adjustments */
+@media (max-width: 320px) {
+    /* Typography */
+    h1 {
+        font-size: 1.5rem !important;
+        line-height: 1.3;
+    }
+    
+    h2 {
+        font-size: 1.25rem !important;
+        line-height: 1.3;
+    }
+    
+    h3 {
+        font-size: 1.125rem !important;
+        line-height: 1.3;
+    }
+    
+    h4 {
+        font-size: 1rem !important;
+    }
+    
+    h5 {
+        font-size: 0.875rem !important;
+    }
+    
+    p, span, div {
+        font-size: 0.8125rem;
+        line-height: 1.4;
+    }
+    
+    /* Buttons */
+    button, .btn {
+        font-size: 0.8125rem !important;
+        padding: 0.5rem 0.875rem !important;
+    }
+    
+    /* Navigation */
+    nav {
+        padding: 0.5rem !important;
+    }
+    
+    .nav-link {
+        font-size: 0.8125rem;
+        padding: 0.375rem 0.5rem;
+    }
+    
+    /* Logo */
+    .logo-container img {
+        max-height: 32px;
+    }
+    
+    /* Containers */
+    .container {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    /* Cards */
+    .card, .product-card {
+        padding: 0.75rem;
+    }
+    
+    /* Forms */
+    input, select, textarea {
+        font-size: 0.8125rem !important;
+        padding: 0.5rem 0.75rem !important;
+    }
+    
+    /* Spacing utilities */
+    .gap-4 {
+        gap: 0.75rem !important;
+    }
+    
+    .gap-6 {
+        gap: 1rem !important;
+    }
+    
+    .p-4 {
+        padding: 0.75rem !important;
+    }
+    
+    .p-6 {
+        padding: 1rem !important;
+    }
+    
+    .p-8 {
+        padding: 1.25rem !important;
+    }
+    
+    .px-4 {
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+    }
+    
+    .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    
+    .py-4 {
+        padding-top: 0.75rem !important;
+        padding-bottom: 0.75rem !important;
+    }
+    
+    .py-6 {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    
+    .m-4 {
+        margin: 0.75rem !important;
+    }
+    
+    .m-6 {
+        margin: 1rem !important;
+    }
+    
+    .mx-4 {
+        margin-left: 0.75rem !important;
+        margin-right: 0.75rem !important;
+    }
+    
+    .my-4 {
+        margin-top: 0.75rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    
+    /* Grid adjustments */
+    .grid {
+        grid-template-columns: 1fr !important;
+        gap: 0.75rem !important;
+    }
+    
+    /* Flex adjustments */
+    .flex {
+        gap: 0.5rem;
+    }
+    
+    /* Icons */
+    i {
+        font-size: 1rem;
+    }
+    
+    /* Images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Modals and overlays */
+    .modal, .overlay {
+        padding: 0.75rem;
+    }
+    
+    /* Footer */
+    footer {
+        font-size: 0.75rem;
+        padding: 1rem 0.75rem;
+    }
+    
+    /* Badge and tags */
+    .badge, .tag {
+        font-size: 0.625rem;
+        padding: 0.1875rem 0.375rem;
+    }
+    
+    /* Search bar */
+    .search-bar {
+        font-size: 0.8125rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    /* Cart count badge */
+    #cartCount {
+        font-size: 0.625rem;
+        min-width: 16px;
+        height: 16px;
+        line-height: 16px;
+    }
+}
+
+/* Navbar Mobile Fixes */
+@media (max-width: 768px) {
+    /* Hide account button completely on mobile */
+    #accountBtn {
+        display: none;
+    }
+    
+    /* Show mobile account button in sidebar */
+    #mobileAccountBtn {
+        display: flex !important;
+    }
+    
+    /* Adjust navbar spacing */
+    nav .container > div {
+        gap: 0.5rem;
+    }
+    
+    /* Make cart button more compact */
+    #cartBtn {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    #cartBtn span {
+        display: none;
+    }
+    
+    #cartBtn i {
+        font-size: 1.25rem;
+    }
+    
+    /* Mobile menu button spacing */
+    #mobileMenuBtn {
+        margin-left: 0.5rem;
+        padding: 0.5rem;
+    }
+    
+    /* Logo adjustments */
+    nav .flex.items-center.space-x-2 span {
+        font-size: 1.5rem;
+    }
+    
+    nav .logo-container i {
+        font-size: 1.75rem;
+    }
+    
+    /* Fix mobile menu search alignment */
+    #mobileMenu .relative {
+        position: relative;
+    }
+    
+    #mobileMenu .relative input {
+        width: 100%;
+        padding-right: 2.5rem;
+    }
+    
+    #mobileMenu .relative button {
+        position: absolute;
+        right: 0.75rem;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 0.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Further compact navbar */
+    nav .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    nav .flex.items-center.justify-between {
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+    }
+    
+    /* Logo even smaller */
+    nav .flex.items-center.space-x-2 span {
+        font-size: 1.25rem;
+    }
+    
+    nav .logo-container i {
+        font-size: 1.5rem;
+    }
+    
+    /* Cart button minimal */
+    #cartBtn {
+        padding: 0.5rem;
+        min-width: 44px;
+    }
+    
+    #cartCount {
+        font-size: 0.625rem;
+        min-width: 18px;
+        height: 18px;
+        line-height: 18px;
+        top: -6px;
+        right: -6px;
+    }
+    
+    /* Mobile menu button */
+    #mobileMenuBtn {
+        font-size: 1.5rem;
+        padding: 0.375rem;
+    }
+}
+
+@media (max-width: 320px) {
+    /* Ultra compact navbar for 320px */
+    nav .container {
+        padding-left: 0.375rem;
+        padding-right: 0.375rem;
+    }
+    
+    nav .flex.items-center.justify-between {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        gap: 0.25rem;
+    }
+    
+    /* Logo minimal */
+    nav .flex.items-center.space-x-2 {
+        gap: 0.25rem;
+    }
+    
+    nav .flex.items-center.space-x-2 span {
+        font-size: 1.125rem;
+    }
+    
+    nav .logo-container i {
+        font-size: 1.25rem;
+    }
+    
+    /* Cart button ultra compact */
+    #cartBtn {
+        padding: 0.375rem;
+        min-width: 40px;
+        border-radius: 50%;
+    }
+    
+    #cartCount {
+        font-size: 0.5625rem;
+        min-width: 16px;
+        height: 16px;
+        line-height: 16px;
+        top: -4px;
+        right: -4px;
+    }
+    
+    /* Mobile menu button minimal */
+    #mobileMenuBtn {
+        font-size: 1.25rem;
+        padding: 0.25rem;
+        margin-left: 0.25rem;
+    }
+    
+    /* Mobile menu search fix */
+    #mobileMenu .relative {
+        padding-top: 0.5rem;
+        margin-top: 0.5rem;
+    }
+    
+    #mobileMenu input {
+        padding: 0.5rem 2rem 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    #mobileMenu .relative button {
+        right: 0.5rem;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-top: 0.25rem;
+    }
+    
+    #mobileMenu button i {
+        font-size: 0.875rem;
+    }
+    
+    /* Mobile menu links */
+    #mobileMenu .flex.flex-col a {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Mobile account button */
+    #mobileAccountBtn {
+        font-size: 0.875rem;
+        padding: 0.5rem 1rem;
+        margin-top: 0.5rem;
+        padding-top: 1rem;
+    }
+    
+    #mobileAccountBtn i {
+        font-size: 1rem;
+    }
+}
+
+/* Cart page navbar fixes */
+@media (max-width: 768px) {
+    /* Hide account button on cart page too */
+    body:has(#cartContent) #accountBtn {
+        display: none;
+    }
+    
+    /* Make back button more compact */
+    body:has(#cartContent) a[href="index.html"] span {
+        display: none;
+    }
+    
+    body:has(#cartContent) a[href="index.html"] {
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Cart page title hidden on small screens */
+    body:has(#cartContent) .hidden.md\\:block {
+        display: none !important;
+    }
+}
+
+@media (max-width: 320px) {
+    /* Ultra compact back button */
+    body:has(#cartContent) a[href="index.html"] {
+        padding: 0.375rem 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    body:has(#cartContent) a[href="index.html"] i {
+        font-size: 0.875rem;
+    }
+}
+
+/* Category Filter Buttons */
+.category-filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: #4b5563;
+    border: 2px solid #e5e7eb;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(22, 163, 74, 0.1);
+    transform: translate(-50%, -50%);
+    transition: width 0.4s ease, height 0.4s ease;
+}
+
+.category-filter-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.category-filter-btn:hover {
+    border-color: #16a34a;
+    color: #16a34a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.2);
+}
+
+.category-filter-btn i {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.category-filter-btn:hover i {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.category-filter-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.category-filter-btn.active {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+    color: white;
+    border-color: #16a34a;
+    box-shadow: 0 6px 16px rgba(22, 163, 74, 0.3);
+    transform: translateY(-2px);
+}
+
+.category-filter-btn.active::before {
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.category-filter-btn.active i {
+    transform: scale(1.1);
+}
+
+/* Ripple effect on click */
+.category-filter-btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+    opacity: 0;
+}
+
+.category-filter-btn:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 1;
+    transition: 0s;
+}
+
+/* Responsive filter buttons */
+@media (max-width: 768px) {
+    .category-filter-btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.875rem;
+    }
+    
+    .category-filter-btn i {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .category-filter-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8125rem;
+    }
+    
+    .category-filter-btn i {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .category-filter-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+        gap: 0.375rem;
+    }
+    
+    .category-filter-btn i {
+        font-size: 0.8125rem;
+    }
+}
+
+/* Animation for filter button entrance */
+@keyframes filterButtonFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.category-filter-btn {
+    animation: filterButtonFadeIn 0.4s ease-out;
+}
+
+.category-filter-btn:nth-child(1) { animation-delay: 0.05s; }
+.category-filter-btn:nth-child(2) { animation-delay: 0.1s; }
+.category-filter-btn:nth-child(3) { animation-delay: 0.15s; }
+.category-filter-btn:nth-child(4) { animation-delay: 0.2s; }
+.category-filter-btn:nth-child(5) { animation-delay: 0.25s; }
+.category-filter-btn:nth-child(6) { animation-delay: 0.3s; }
