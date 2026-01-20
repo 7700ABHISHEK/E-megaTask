@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <link rel="stylesheet" href="assets/css/profile.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+
+                <div class="hidden xl:flex items-center space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Kitchen</a>
+                    <a href="health.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
+                    <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Electronics</a>
+                    <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Grocery</a>
+                    <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Lifestyle</a>
+                </div>
+
+                <div class="hidden xl:flex items-center flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input 
+                            type="text" 
+                            id="searchInput"
+                            placeholder="Search eco-friendly products..." 
+                            class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-green-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div id="accountContainer" class="relative">
+                        <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                            <i class="fas fa-user text-xl"></i>
+                            <span class="hidden sm:inline font-medium">Account</span>
+                        </a>
+                    </div>
+                    <div id="cartContainer" class="relative">
+                        <button id="cartBtn" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="hidden sm:inline font-medium">Cart</span>
+                            <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button id="mobileMenuBtn" class="xl:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="hidden xl:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Kitchen</a>
+                    <a href="health.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
+                    <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Electronics</a>
+                    <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Grocery</a>
+                    <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Lifestyle</a>
+                    <div class="relative pt-2">
+                        <input 
+                            type="text" 
+                            placeholder="Search products..." 
+                            class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-green-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                    <a href="profile.html" id="mobileAccountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 font-medium border-t border-gray-200 mt-2 pt-4">
+                        <i class="fas fa-user text-lg"></i>
+                        <span>My Account</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-md p-6 sticky top-24">
+                    <!-- User Info -->
+                    <div class="text-center mb-6 pb-6 border-b border-gray-200">
+                        <div class="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user text-4xl text-white"></i>
+                        </div>
+                        <h3 id="sidebarUserName" class="text-xl font-bold text-gray-800 mb-1">Loading...</h3>
+                        <p id="sidebarUserEmail" class="text-sm text-gray-500">Loading...</p>
+                    </div>
+                    
+                    <!-- Menu -->
+                    <div class="space-y-2">
+                        <div class="sidebar-menu-item active" data-section="home">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </div>
+                        
+                        <!-- Profile with submenu -->
+                        <div class="sidebar-menu-group">
+                            <div class="sidebar-menu-item" data-section="edit">
+                                <i class="fas fa-user"></i>
+                                <span>Profile</span>
+                                <i class="fas fa-plus ml-auto toggle-icon"></i>
+                            </div>
+                            <div class="sidebar-submenu hidden">
+                                <div class="sidebar-submenu-item" data-section="edit">Edit Profile</div>
+                                <div class="sidebar-submenu-item" data-section="personal">Personal Details</div>
+                                <div class="sidebar-submenu-item" data-section="welcome-letter">Welcome Letter</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Club Team Detail with submenu -->
+                        <div class="sidebar-menu-group">
+                            <div class="sidebar-menu-item" data-section="club">
+                                <i class="fas fa-users"></i>
+                                <span>Club Team Detail</span>
+                                <i class="fas fa-plus ml-auto toggle-icon"></i>
+                            </div>
+                            <div class="sidebar-submenu hidden">
+                                <div class="sidebar-submenu-item" data-section="direct-partner">My Direct Partner</div>
+                                <div class="sidebar-submenu-item" data-section="club-team">My Club Team</div>
+                                <div class="sidebar-submenu-item" data-section="level-wise">Level Wise List</div>
+                                <div class="sidebar-submenu-item" data-section="level-regular">Level Table - Regular</div>
+                                <div class="sidebar-submenu-item" data-section="level-platinum">Level Table - Platinum</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Transaction with submenu -->
+                        <div class="sidebar-menu-group">
+                            <div class="sidebar-menu-item" data-section="transaction">
+                                <i class="fas fa-receipt"></i>
+                                <span>Transaction</span>
+                                <i class="fas fa-plus ml-auto toggle-icon"></i>
+                            </div>
+                            <div class="sidebar-submenu hidden">
+                                <div class="sidebar-submenu-item" data-section="transaction">Transaction History</div>
+                                <div class="sidebar-submenu-item" data-section="orders">Order History</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Payment Information with submenu -->
+                        <div class="sidebar-menu-group">
+                            <div class="sidebar-menu-item" data-section="payment">
+                                <i class="fas fa-credit-card"></i>
+                                <span>Payment Information</span>
+                                <i class="fas fa-plus ml-auto toggle-icon"></i>
+                            </div>
+                            <div class="sidebar-submenu hidden">
+                                <div class="sidebar-submenu-item" data-section="payment">Payment Methods</div>
+                                <div class="sidebar-submenu-item" data-section="billing">Billing Address</div>
+                            </div>
+                        </div>
+                        
+                        <div class="sidebar-menu-item" data-section="password">
+                            <i class="fas fa-cog"></i>
+                            <span>Change Password</span>
+                        </div>
+                        
+                        <div class="sidebar-menu-item" data-section="share">
+                            <i class="fas fa-share-alt"></i>
+                            <span>Refer & Earn</span>
+                        </div>
+                        
+                        <button id="logoutBtn" class="sidebar-menu-item w-full text-left hover:bg-red-50 hover:text-red-600">
+                            <i class="fas fa-power-off"></i>
+                            <span>Logout</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="lg:col-span-3">
+                <!-- Dashboard Section -->
+                <div id="homeSection" class="section-content">
+                    <!-- Welcome Banner -->
+                    <div class="welcome-banner">
+                        <div class="welcome-content">
+                            <h1 class="welcome-title">Welcome Back, <span id="welcomeName">User</span>! 👋</h1>
+                            <p class="welcome-subtitle">Here's what's happening with your account today</p>
+                        </div>
+                        <div class="welcome-decoration">
+                            <div class="decoration-circle circle-1"></div>
+                            <div class="decoration-circle circle-2"></div>
+                            <div class="decoration-circle circle-3"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Stats Grid -->
+                    <div class="stats-grid">
+                        <div class="stat-card stat-card-1">
+                            <div class="stat-icon-wrapper">
+                                <i class="fas fa-wallet stat-icon"></i>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Total Balance</p>
+                                <h3 class="stat-value">₹ 0.00</h3>
+                                <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 0%</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-card-2">
+                            <div class="stat-icon-wrapper">
+                                <i class="fas fa-shopping-bag stat-icon"></i>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Total Orders</p>
+                                <h3 class="stat-value">0</h3>
+                                <span class="stat-change neutral">No orders yet</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-card-3">
+                            <div class="stat-icon-wrapper">
+                                <i class="fas fa-users stat-icon"></i>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Referral Team</p>
+                                <h3 class="stat-value">0</h3>
+                                <span class="stat-change neutral">Start referring</span>
+                            </div>
+                        </div>
+
+                        <div class="stat-card stat-card-4">
+                            <div class="stat-icon-wrapper">
+                                <i class="fas fa-gift stat-icon"></i>
+                            </div>
+                            <div class="stat-info">
+                                <p class="stat-label">Reward Points</p>
+                                <h3 class="stat-value">0</h3>
+                                <span class="stat-change neutral">Earn rewards</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile Overview Card -->
+                    <div class="profile-overview-card">
+                        <div class="profile-overview-header">
+                            <div class="profile-avatar">
+                                <i class="fas fa-user-circle"></i>
+                            </div>
+                            <div class="profile-header-info">
+                                <h2 id="profileOverviewName" class="profile-overview-name">Loading...</h2>
+                                <p class="profile-overview-email" id="profileOverviewEmail">Loading...</p>
+                            </div>
+                            <div class="profile-badge">
+                                <i class="fas fa-crown"></i>
+                                <span>Member</span>
+                            </div>
+                        </div>
+                        
+                        <div class="profile-overview-body">
+                            <div class="profile-info-grid">
+                                <div class="profile-info-item">
+                                    <i class="fas fa-id-card info-icon"></i>
+                                    <div>
+                                        <p class="info-label">Member ID</p>
+                                        <p id="profileMemberId" class="info-value">Loading...</p>
+                                    </div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <i class="fas fa-user-tag info-icon"></i>
+                                    <div>
+                                        <p class="info-label">Sponsor ID</p>
+                                        <p id="profileSponsorId" class="info-value">-</p>
+                                    </div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <i class="fas fa-calendar-alt info-icon"></i>
+                                    <div>
+                                        <p class="info-label">Joining Date</p>
+                                        <p id="profileJoiningDate" class="info-value">19-01-2026</p>
+                                    </div>
+                                </div>
+                                <div class="profile-info-item">
+                                    <i class="fas fa-check-circle info-icon status-icon"></i>
+                                    <div>
+                                        <p class="info-label">Account Status</p>
+                                        <p class="info-value status-active-badge">Active</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Account Balances -->
+                    <div class="section-header">
+                        <h2 class="section-title">Account Balances</h2>
+                        <p class="section-subtitle">Manage your funds and earnings</p>
+                    </div>
+
+                    <div class="balance-grid">
+                        <div class="modern-balance-card balance-primary">
+                            <div class="balance-card-header">
+                                <div class="balance-card-icon">
+                                    <i class="fas fa-wallet"></i>
+                                </div>
+                                <button class="balance-action-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="balance-card-body">
+                                <p class="balance-card-label">Main Wallet</p>
+                                <h3 class="balance-card-amount">₹ 0.00</h3>
+                                <div class="balance-card-footer">
+                                    <span class="balance-card-tag">Primary</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modern-balance-card balance-secondary">
+                            <div class="balance-card-header">
+                                <div class="balance-card-icon">
+                                    <i class="fas fa-coins"></i>
+                                </div>
+                                <button class="balance-action-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="balance-card-body">
+                                <p class="balance-card-label">Purchase Balance</p>
+                                <h3 class="balance-card-amount">₹ 0.00</h3>
+                                <div class="balance-card-footer">
+                                    <span class="balance-card-tag">Shopping</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modern-balance-card balance-tertiary">
+                            <div class="balance-card-header">
+                                <div class="balance-card-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <button class="balance-action-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="balance-card-body">
+                                <p class="balance-card-label">Referral Income</p>
+                                <h3 class="balance-card-amount">₹ 0.00</h3>
+                                <div class="balance-card-footer">
+                                    <span class="balance-card-tag">Earnings</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modern-balance-card balance-quaternary">
+                            <div class="balance-card-header">
+                                <div class="balance-card-icon">
+                                    <i class="fas fa-ticket-alt"></i>
+                                </div>
+                                <button class="balance-action-btn">
+                                    <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                            <div class="balance-card-body">
+                                <p class="balance-card-label">Voucher Balance</p>
+                                <h3 class="balance-card-amount">₹ 0.00</h3>
+                                <div class="balance-card-footer">
+                                    <span class="balance-card-tag">Rewards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Referral Section -->
+                    <div class="referral-section">
+                        <div class="referral-card">
+                            <div class="referral-icon-wrapper">
+                                <i class="fas fa-share-alt"></i>
+                            </div>
+                            <div class="referral-content">
+                                <h3 class="referral-title">Invite Friends & Earn Rewards</h3>
+                                <p class="referral-description">Share your unique referral link and get exclusive benefits when your friends join</p>
+                                <div class="referral-link-wrapper">
+                                    <input type="text" id="dashboardShareLink" class="referral-input" readonly>
+                                    <button onclick="copyDashboardLink()" class="referral-copy-btn">
+                                        <i class="fas fa-copy"></i>
+                                        <span>Copy</span>
+                                    </button>
+                                </div>
+                                <div class="referral-stats">
+                                    <div class="referral-stat">
+                                        <i class="fas fa-users"></i>
+                                        <span>0 Referrals</span>
+                                    </div>
+                                    <div class="referral-stat">
+                                        <i class="fas fa-coins"></i>
+                                        <span>₹ 0 Earned</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="section-header">
+                        <h2 class="section-title">Quick Actions</h2>
+                        <p class="section-subtitle">Manage your account efficiently</p>
+                    </div>
+
+                    <div class="quick-actions-grid">
+                        <button class="quick-action-card" onclick="document.querySelector('[data-section=\'edit\']').click()">
+                            <div class="quick-action-icon">
+                                <i class="fas fa-user-edit"></i>
+                            </div>
+                            <h4 class="quick-action-title">Edit Profile</h4>
+                            <p class="quick-action-desc">Update your information</p>
+                        </button>
+
+                        <button class="quick-action-card" onclick="document.querySelector('[data-section=\'password\']').click()">
+                            <div class="quick-action-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h4 class="quick-action-title">Change Password</h4>
+                            <p class="quick-action-desc">Secure your account</p>
+                        </button>
+
+                        <button class="quick-action-card" onclick="document.querySelector('[data-section=\'transaction\']').click()">
+                            <div class="quick-action-icon">
+                                <i class="fas fa-receipt"></i>
+                            </div>
+                            <h4 class="quick-action-title">Transactions</h4>
+                            <p class="quick-action-desc">View your history</p>
+                        </button>
+
+                        <button class="quick-action-card" onclick="document.querySelector('[data-section=\'payment\']').click()">
+                            <div class="quick-action-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h4 class="quick-action-title">Payment Methods</h4>
+                            <p class="quick-action-desc">Manage payments</p>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Edit Profile Section -->
+                <div id="editSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Profile</h2>
+                    
+                    <div class="profile-card">
+                        <form id="editProfileForm">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-user text-green-600"></i>
+                                    Full Name
+                                </label>
+                                <input type="text" id="editName" class="form-input" placeholder="Enter your full name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-envelope text-green-600"></i>
+                                    Email Address
+                                </label>
+                                <input type="email" id="editEmail" class="form-input" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-phone text-green-600"></i>
+                                    Mobile Number
+                                </label>
+                                <input type="tel" id="editMobile" class="form-input" placeholder="Enter your mobile number" required>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                                <i class="fas fa-save mr-2"></i>
+                                Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Change Password Section -->
+                <div id="passwordSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Change Password</h2>
+                    
+                    <div class="profile-card">
+                        <form id="changePasswordForm">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-lock text-green-600"></i>
+                                    Current Password
+                                </label>
+                                <input type="password" id="currentPassword" class="form-input" placeholder="Enter current password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-key text-green-600"></i>
+                                    New Password
+                                </label>
+                                <input type="password" id="newPassword" class="form-input" placeholder="Enter new password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-check-circle text-green-600"></i>
+                                    Confirm New Password
+                                </label>
+                                <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm new password" required>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                                <i class="fas fa-shield-alt mr-2"></i>
+                                Update Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Personal Details Section -->
+                <div id="personalSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Personal Details</h2>
+                    
+                    <div class="profile-card">
+                        <div class="info-row">
+                            <span class="info-label">Full Name</span>
+                            <span id="personalName" class="info-value">Loading...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Email Address</span>
+                            <span id="personalEmail" class="info-value">Loading...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Mobile Number</span>
+                            <span id="personalMobile" class="info-value">Loading...</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="info-label">Member Since</span>
+                            <span id="personalJoining" class="info-value">19-01-2026</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Welcome Letter Section -->
+                <div id="welcome-letterSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Welcome Letter</h2>
+                    
+                    <div class="profile-card">
+                        <!-- Upload Profile Picture -->
+                        <div class="mb-6 p-4 bg-gray-50 rounded-lg">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Upload Profile Picture:</label>
+                            <div class="flex items-center gap-3">
+                                <input type="file" id="profilePictureUpload" accept="image/*" class="text-sm text-gray-600">
+                                <button onclick="uploadProfilePicture()" class="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition text-sm">
+                                    Upload
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- IBO Identity Card -->
+                        <div class="border-4 border-double border-gray-800 rounded-lg p-6 mb-6">
+                            <div class="border-2 border-gray-700 rounded-lg p-6">
+                                <div class="flex items-start gap-6 mb-6">
+                                    <div class="w-24 h-32 bg-gray-200 rounded flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-user text-4xl text-gray-400"></i>
+                                    </div>
+                                    <div class="flex-1">
+                                        <h3 class="text-2xl font-bold text-gray-800 mb-4">E-MEGATASK</h3>
+                                        <div class="bg-white border-2 border-gray-800 rounded p-4">
+                                            <p class="text-center font-bold text-lg mb-3">IBO Identity Card</p>
+                                            <div class="space-y-2">
+                                                <div class="flex">
+                                                    <span class="font-semibold w-24">Name:</span>
+                                                    <span id="welcomeLetterName" class="text-gray-700">Loading...</span>
+                                                </div>
+                                                <div class="flex">
+                                                    <span class="font-semibold w-24">IBO Id:</span>
+                                                    <span id="welcomeLetterIboId" class="text-gray-700">Loading...</span>
+                                                </div>
+                                                <div class="flex">
+                                                    <span class="font-semibold w-24">D.O.J:</span>
+                                                    <span id="welcomeLetterDoj" class="text-gray-700">19/01/2026</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex gap-2 mb-4">
+                                    <button onclick="printCard()" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition text-sm">
+                                        Print Card
+                                    </button>
+                                    <input type="number" id="printQuantity" value="0" min="0" class="w-20 px-2 py-1 border border-gray-300 rounded text-sm">
+                                </div>
+
+                                <!-- Welcome Letter Content -->
+                                <div class="space-y-4 text-gray-700 text-sm leading-relaxed">
+                                    <p class="text-justify">
+                                        It gives us immense pleasure to welcome you on joining the fraternity of <strong>E-MEGATASK</strong>. Opportunities are invisible windows 
+                                        and very few of us see them to make fortunes. As the success story starts unfolding, we define it as ' The right decision taken 
+                                        at the right time'. Coming time will prove to make you feel proud of this wise decision taken to associate with <strong>E-MEGATASK</strong>
+                                    </p>
+                                    
+                                    <p class="text-justify">
+                                        You will not only benefit by using our products & packages but also reap handsome dividends for your commitment in terms of 
+                                        regular income as well as contribution towards adding high values in the society.
+                                    </p>
+                                    
+                                    <p class="text-justify">
+                                        We take pleasure to induce you as ' Independent Associates' to our first home based online marketing with an eye to bring 
+                                        about sustainable growth for you and your associates.
+                                    </p>
+                                    
+                                    <p class="text-justify">
+                                        We wish this association may take you to the world of prosperity and financial independence and a source of never ending 
+                                        happiness for your family. Start your journey of success with us and get happiness, earn wealth and sell fortunes. Our earnest 
+                                        cooperation will be there - always and ever.
+                                    </p>
+                                    
+                                    <div class="text-right mt-6">
+                                        <p class="font-semibold">Managing Director</p>
+                                        <p class="font-bold">E-MEGATASK</p>
+                                    </div>
+                                    
+                                    <p class="text-xs italic text-gray-600 mt-4 pt-4 border-t border-gray-300">
+                                        PS - This is not a receipt of any product or payment but only an introduction letter.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Direct Partner Section -->
+                <div id="direct-partnerSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">My Direct Partner</h2>
+                    
+                    <div class="profile-card">
+                        <div class="mb-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="text-lg font-semibold text-gray-800">Direct Partners List</h3>
+                                <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">Total: 0</span>
+                            </div>
+                            <p class="text-gray-600 mb-4">View all members directly referred by you</p>
+                        </div>
+                        
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">S.No</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Member ID</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Joining Date</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" class="px-4 py-8 text-center text-gray-500">
+                                            <i class="fas fa-user-plus text-4xl text-gray-300 mb-3"></i>
+                                            <p>No direct partners yet</p>
+                                            <p class="text-sm text-gray-400 mt-1">Start referring to build your network</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- My Club Team Section -->
+                <div id="club-teamSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">My Club Team</h2>
+                    
+                    <div class="profile-card mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                            <div class="text-center p-4 bg-gradient-to-br from-green-50 to-green-100 rounded-lg">
+                                <i class="fas fa-users text-3xl text-green-600 mb-2"></i>
+                                <h4 class="text-2xl font-bold text-green-600">0</h4>
+                                <p class="text-gray-600 text-sm mt-1">Total Members</p>
+                            </div>
+                            <div class="text-center p-4 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg">
+                                <i class="fas fa-user-check text-3xl text-blue-600 mb-2"></i>
+                                <h4 class="text-2xl font-bold text-blue-600">0</h4>
+                                <p class="text-gray-600 text-sm mt-1">Active Members</p>
+                            </div>
+                            <div class="text-center p-4 bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg">
+                                <i class="fas fa-layer-group text-3xl text-purple-600 mb-2"></i>
+                                <h4 class="text-2xl font-bold text-purple-600">0</h4>
+                                <p class="text-gray-600 text-sm mt-1">Total Levels</p>
+                            </div>
+                            <div class="text-center p-4 bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg">
+                                <i class="fas fa-coins text-3xl text-orange-600 mb-2"></i>
+                                <h4 class="text-2xl font-bold text-orange-600">₹ 0</h4>
+                                <p class="text-gray-600 text-sm mt-1">Team Earnings</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Complete Team Structure</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">S.No</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Member ID</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Level</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Sponsor</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="px-4 py-8 text-center text-gray-500">
+                                            <i class="fas fa-users text-4xl text-gray-300 mb-3"></i>
+                                            <p>No team members yet</p>
+                                            <p class="text-sm text-gray-400 mt-1">Your complete team structure will appear here</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level Wise List Section -->
+                <div id="level-wiseSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Level Wise List</h2>
+                    
+                    <div class="profile-card mb-6">
+                        <div class="flex items-center justify-between mb-4">
+                            <h3 class="text-lg font-semibold text-gray-800">Select Level</h3>
+                            <select class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                                <option value="">All Levels</option>
+                                <option value="1">Level 1</option>
+                                <option value="2">Level 2</option>
+                                <option value="3">Level 3</option>
+                                <option value="4">Level 4</option>
+                                <option value="5">Level 5</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Level</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Member ID</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Name</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Sponsor ID</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Joining Date</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td colspan="6" class="px-4 py-8 text-center text-gray-500">
+                                            <i class="fas fa-layer-group text-4xl text-gray-300 mb-3"></i>
+                                            <p>No members in selected level</p>
+                                            <p class="text-sm text-gray-400 mt-1">Members will be organized by their level in your network</p>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level Table Regular Section -->
+                <div id="level-regularSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Level Table - Regular</h2>
+                    
+                    <div class="profile-card mb-6">
+                        <div class="bg-gradient-to-r from-green-50 to-green-100 rounded-lg p-4 border-l-4 border-green-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-award text-3xl text-green-600 mr-4"></i>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Regular Membership Plan</h3>
+                                    <p class="text-gray-600 text-sm">Standard commission structure for regular members</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Level-wise Commission Structure</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Level</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Members</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Commission %</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Total Earnings</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-green-100 text-green-600 rounded-full font-semibold">1</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">10%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-blue-100 text-blue-600 rounded-full font-semibold">2</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">8%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-purple-600 rounded-full font-semibold">3</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">6%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-orange-100 text-orange-600 rounded-full font-semibold">4</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">4%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-red-100 text-red-600 rounded-full font-semibold">5</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">2%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="bg-gray-50">
+                                    <tr>
+                                        <td class="px-4 py-3 font-semibold text-gray-800">Total</td>
+                                        <td class="px-4 py-3 font-semibold text-gray-800">0</td>
+                                        <td class="px-4 py-3 font-semibold text-gray-800">-</td>
+                                        <td class="px-4 py-3 font-semibold text-green-600">₹ 0.00</td>
+                                        <td class="px-4 py-3"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Level Table Platinum Section -->
+                <div id="level-platinumSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Level Table - Platinum</h2>
+                    
+                    <div class="profile-card mb-6">
+                        <div class="bg-gradient-to-r from-purple-50 to-purple-100 rounded-lg p-4 border-l-4 border-purple-600">
+                            <div class="flex items-center">
+                                <i class="fas fa-crown text-3xl text-purple-600 mr-4"></i>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-gray-800">Platinum Membership Plan</h3>
+                                    <p class="text-gray-600 text-sm">Premium commission structure for platinum members</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-card">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-4">Level-wise Commission Structure</h3>
+                        <div class="overflow-x-auto">
+                            <table class="w-full">
+                                <thead class="bg-gray-50">
+                                    <tr>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Level</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Members</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Commission %</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Total Earnings</th>
+                                        <th class="px-4 py-3 text-left text-xs font-semibold text-gray-600 uppercase">Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-purple-600 rounded-full font-semibold">1</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">15%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-purple-600 rounded-full font-semibold">2</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">12%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-purple-600 rounded-full font-semibold">3</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">10%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr class="border-b border-gray-200">
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-purple-600 rounded-full font-semibold">4</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">8%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="px-4 py-3">
+                                            <span class="inline-flex items-center justify-center w-8 h-8 bg-purple-100 text-purple-600 rounded-full font-semibold">5</span>
+                                        </td>
+                                        <td class="px-4 py-3 text-gray-700">0</td>
+                                        <td class="px-4 py-3 text-gray-700">5%</td>
+                                        <td class="px-4 py-3 text-gray-700">₹ 0.00</td>
+                                        <td class="px-4 py-3"><span class="px-2 py-1 bg-gray-100 text-gray-600 rounded text-xs">Inactive</span></td>
+                                    </tr>
+                                </tbody>
+                                <tfoot class="bg-gray-50">
+                                    <tr>
+                                        <td class="px-4 py-3 font-semibold text-gray-800">Total</td>
+                                        <td class="px-4 py-3 font-semibold text-gray-800">0</td>
+                                        <td class="px-4 py-3 font-semibold text-gray-800">-</td>
+                                        <td class="px-4 py-3 font-semibold text-purple-600">₹ 0.00</td>
+                                        <td class="px-4 py-3"></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Transaction Section -->
+                <div id="transactionSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Transaction History</h2>
+                    
+                    <div class="profile-card">
+                        <div class="text-center py-8">
+                            <i class="fas fa-receipt text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg">No transactions yet</p>
+                            <p class="text-gray-400 mt-2">Your transaction history will appear here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Section -->
+                <div id="ordersSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Order History</h2>
+                    
+                    <div class="profile-card">
+                        <div class="text-center py-8">
+                            <i class="fas fa-shopping-bag text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg">No orders yet</p>
+                            <p class="text-gray-400 mt-2">Start shopping to see your orders here</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Information Section -->
+                <div id="paymentSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Payment Methods</h2>
+                    
+                    <div class="profile-card">
+                        <div class="text-center py-8">
+                            <i class="fas fa-credit-card text-6xl text-gray-300 mb-4"></i>
+                            <p class="text-gray-500 text-lg">No payment methods added</p>
+                            <p class="text-gray-400 mt-2">Add a payment method to make checkout faster</p>
+                            <button class="mt-4 bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition">
+                                <i class="fas fa-plus mr-2"></i>
+                                Add Payment Method
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Billing Address Section -->
+                <div id="billingSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Billing Address</h2>
+                    
+                    <div class="profile-card">
+                        <form id="billingForm">
+                            <div class="form-group">
+                                <label class="form-label">
+                                    <i class="fas fa-map-marker-alt text-green-600"></i>
+                                    Street Address
+                                </label>
+                                <input type="text" id="billingAddress" class="form-input" placeholder="Enter street address">
+                            </div>
+                            
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div class="form-group">
+                                    <label class="form-label">City</label>
+                                    <input type="text" id="billingCity" class="form-input" placeholder="Enter city">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Postal Code</label>
+                                    <input type="text" id="billingPostal" class="form-input" placeholder="Enter postal code">
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                                <i class="fas fa-save mr-2"></i>
+                                Save Billing Address
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Share & Earn Section -->
+                <div id="shareSection" class="section-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Refer & Earn</h2>
+                    
+                    <div class="profile-card">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-gift text-6xl text-green-600 mb-4"></i>
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Invite Friends & Earn Rewards!</h3>
+                            <p class="text-gray-600">Share your referral link and get exclusive benefits</p>
+                        </div>
+                        
+                        <div class="bg-gray-50 rounded-lg p-4 mb-4">
+                            <label class="text-sm font-semibold text-gray-700 mb-2 block">Your Referral Link</label>
+                            <div class="flex gap-2">
+                                <input type="text" id="shareLink" class="form-input flex-1" readonly>
+                                <button onclick="copyShareLink()" class="bg-green-600 text-white px-6 py-2 rounded-lg hover:bg-green-700 transition whitespace-nowrap">
+                                    <i class="fas fa-copy mr-2"></i>
+                                    Copy
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+                            <button class="flex items-center justify-center gap-2 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                                <i class="fab fa-facebook-f"></i>
+                                <span class="hidden sm:inline">Facebook</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 bg-sky-500 text-white py-3 rounded-lg hover:bg-sky-600 transition">
+                                <i class="fab fa-twitter"></i>
+                                <span class="hidden sm:inline">Twitter</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 bg-green-500 text-white py-3 rounded-lg hover:bg-green-600 transition">
+                                <i class="fab fa-whatsapp"></i>
+                                <span class="hidden sm:inline">WhatsApp</span>
+                            </button>
+                            <button class="flex items-center justify-center gap-2 bg-blue-700 text-white py-3 rounded-lg hover:bg-blue-800 transition">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span class="hidden sm:inline">LinkedIn</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2026 E-megaTask. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/profile.js"></script>
+</body>
+</html>

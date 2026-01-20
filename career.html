@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .career-hero {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .career-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+        .job-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .job-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(22, 163, 74, 0.2);
+            border-color: #16a34a;
+        }
+        .benefit-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: scale(1.05);
+        }
+        .value-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">About</a>
+                    <a href="career.html" class="nav-link text-green-600 font-medium transition">Careers</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="index.html" class="px-6 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition font-medium">
+                        Back to Shop
+                    </a>
+                </div>
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">About</a>
+                    <a href="career.html" class="nav-link text-green-600 font-medium py-2">Careers</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="career-hero py-20 text-white relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Join Our Green Mission</h1>
+                <p class="text-xl md:text-2xl mb-8 text-green-50">Build a sustainable future with E-megaTask. We're looking for passionate individuals to help us make eco-friendly shopping accessible to everyone.</p>
+                <a href="#openings" class="inline-block bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-50 transition">
+                    View Open Positions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Join Us Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Why Work With Us?</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                At E-megaTask, we believe in creating a workplace where innovation meets sustainability. Join a team that's making a real difference.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="benefit-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="value-icon">
+                        <i class="fas fa-leaf text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sustainability Focus</h3>
+                    <p class="text-gray-600">Work on projects that positively impact the environment and promote eco-friendly living.</p>
+                </div>
+                <div class="benefit-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="value-icon">
+                        <i class="fas fa-users text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Collaborative Culture</h3>
+                    <p class="text-gray-600">Join a diverse team of passionate professionals who support and inspire each other.</p>
+                </div>
+                <div class="benefit-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="value-icon">
+                        <i class="fas fa-rocket text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Career Growth</h3>
+                    <p class="text-gray-600">Continuous learning opportunities, mentorship programs, and clear paths for advancement.</p>
+                </div>
+                <div class="benefit-card text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="value-icon">
+                        <i class="fas fa-heart text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Work-Life Balance</h3>
+                    <p class="text-gray-600">Flexible schedules, remote work options, and generous time-off policies.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Employee Benefits</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="50">
+                    <i class="fas fa-briefcase-medical text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Health & Wellness</h3>
+                    <p class="text-gray-600">Comprehensive health insurance, dental, vision, and mental health support.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-piggy-bank text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Retirement Plans</h3>
+                    <p class="text-gray-600">401(k) matching program to help you plan for your future.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fas fa-graduation-cap text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Learning & Development</h3>
+                    <p class="text-gray-600">Professional development budget, conferences, and online courses.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-home text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Remote Work</h3>
+                    <p class="text-gray-600">Flexible remote work options with home office stipend.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-umbrella-beach text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Paid Time Off</h3>
+                    <p class="text-gray-600">Generous vacation days, sick leave, and paid holidays.</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-baby text-4xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Parental Leave</h3>
+                    <p class="text-gray-600">Paid parental leave for new parents to bond with their children.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Positions Section -->
+    <section id="openings" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Open Positions</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Explore our current job openings and find the perfect role for you.
+            </p>
+            
+            <!-- Engineering -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center" data-aos="fade-up">
+                    <i class="fas fa-code text-green-600 mr-3"></i> Engineering
+                </h3>
+                <div class="space-y-4">
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Senior Full Stack Developer</h4>
+                                <p class="text-gray-600 mb-3">Build scalable e-commerce solutions using React, Node.js, and cloud technologies.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Remote</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">5+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">DevOps Engineer</h4>
+                                <p class="text-gray-600 mb-3">Manage infrastructure, CI/CD pipelines, and ensure system reliability.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Hybrid</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">3+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Mobile App Developer</h4>
+                                <p class="text-gray-600 mb-3">Create beautiful mobile experiences with React Native or Flutter.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Remote</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">3+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing & Sales -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center" data-aos="fade-up">
+                    <i class="fas fa-bullhorn text-green-600 mr-3"></i> Marketing & Sales
+                </h3>
+                <div class="space-y-4">
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Digital Marketing Manager</h4>
+                                <p class="text-gray-600 mb-3">Lead our digital marketing strategy across social media, SEO, and paid campaigns.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Hybrid</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">4+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Content Creator</h4>
+                                <p class="text-gray-600 mb-3">Produce engaging content that educates customers about sustainable living.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Remote</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">2+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Business Development Representative</h4>
+                                <p class="text-gray-600 mb-3">Identify and develop partnerships with eco-friendly brands and suppliers.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">On-site</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">3+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Operations & Customer Service -->
+            <div class="mb-12">
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center" data-aos="fade-up">
+                    <i class="fas fa-cogs text-green-600 mr-3"></i> Operations & Customer Service
+                </h3>
+                <div class="space-y-4">
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Supply Chain Manager</h4>
+                                <p class="text-gray-600 mb-3">Optimize logistics and ensure sustainable sourcing practices.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">On-site</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">5+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Customer Success Specialist</h4>
+                                <p class="text-gray-600 mb-3">Provide exceptional support and build lasting relationships with customers.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Remote</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">1+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Warehouse Coordinator</h4>
+                                <p class="text-gray-600 mb-3">Manage inventory, fulfillment, and ensure efficient warehouse operations.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">On-site</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">2+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Design & Product -->
+            <div>
+                <h3 class="text-2xl font-bold text-gray-800 mb-6 flex items-center" data-aos="fade-up">
+                    <i class="fas fa-palette text-green-600 mr-3"></i> Design & Product
+                </h3>
+                <div class="space-y-4">
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="50">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">UX/UI Designer</h4>
+                                <p class="text-gray-600 mb-3">Design intuitive and beautiful user experiences for our platform.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Remote</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">3+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Product Manager</h4>
+                                <p class="text-gray-600 mb-3">Define product strategy and roadmap for our e-commerce platform.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Hybrid</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">4+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="job-card" data-aos="fade-up" data-aos-delay="150">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                            <div class="flex-1">
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Graphic Designer</h4>
+                                <p class="text-gray-600 mb-3">Create compelling visual content for marketing campaigns and brand materials.</p>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Full-time</span>
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Remote</span>
+                                    <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">2+ years</span>
+                                </div>
+                            </div>
+                            <button class="px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition font-semibold whitespace-nowrap">
+                                Apply Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Process Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Our Hiring Process</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="50">
+                    <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">1</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Apply Online</h3>
+                    <p class="text-gray-600">Submit your application and resume through our career portal.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">2</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Initial Screening</h3>
+                    <p class="text-gray-600">Our team reviews your application and conducts a phone screening.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="150">
+                    <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">3</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Interviews</h3>
+                    <p class="text-gray-600">Meet with team members and showcase your skills through interviews.</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">4</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Offer & Onboarding</h3>
+                    <p class="text-gray-600">Receive your offer and join our team with comprehensive onboarding.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-green-700 text-white">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h2 class="text-4xl font-bold mb-4">Don't See the Right Role?</h2>
+            <p class="text-xl mb-8 text-green-50">We're always looking for talented individuals. Send us your resume and we'll keep you in mind for future opportunities.</p>
+            <a href="mailto:emegataskonline@gmail.com" class="inline-block bg-white text-green-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-50 transition">
+                Send Your Resume
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Sustainable shopping for a better planet.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-twitter text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-linkedin text-xl"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-green-500 transition text-sm">About Us</a></li>
+                        <li><a href="career.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
+                        <li><a href="press.html " class="text-gray-400 hover:text-green-500 transition text-sm">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#kitchen" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
+                        <li><a href="index.html#health" class="text-gray-400 hover:text-green-500 transition text-sm">Health</a></li>
+                        <li><a href="index.html#electronics" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
+                        <li><a href="index.html#grocery" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-green-500 transition text-sm">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-green-500 transition text-sm">FAQ</a></li>
+                        <li><a href="shipping.html" class="text-gray-400 hover:text-green-500 transition text-sm">Shipping</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Contact</h3>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><i class="fas fa-map-marker-alt text-green-500 mr-2"></i>232, palladium plaza, vip road, surat, Gujarat</li>
+                        <li><i class="fas fa-phone text-green-500 mr-2"></i>8320462692</li>
+                        <li><i class="fas fa-envelope text-green-500 mr-2"></i>emegataskonline@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-6 border-t border-gray-700">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm text-center md:text-left">
+                        &copy; 2026 E-megaTask. All rights reserved.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Privacy Policy</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Terms & Conditions</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>

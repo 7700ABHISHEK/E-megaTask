@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+
+                <!-- Navigation Links - Desktop -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">About Us</a>
+                    <a href="testimonials.html" class="nav-link text-green-600 font-medium">Testimonials</a>
+                    <a href="index.html#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Shop</a>
+                </div>
+
+                <!-- Account & Cart Buttons -->
+                <div class="flex items-center space-x-4">
+                    <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                        <i class="fas fa-user text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Account</span>
+                    </a>
+                    <a href="cart.html" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Cart</span>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">About Us</a>
+                    <a href="testimonials.html" class="nav-link text-green-600 font-medium py-2">Testimonials</a>
+                    <a href="index.html#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Shop</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Customer Testimonials</h1>
+                <p class="text-xl md:text-2xl text-green-100">Real stories from our eco-conscious community</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">10K+</div>
+                    <div class="text-gray-600">Happy Customers</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">4.9</div>
+                    <div class="text-gray-600">Average Rating</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">98%</div>
+                    <div class="text-gray-600">Satisfaction Rate</div>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="400">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">5K+</div>
+                    <div class="text-gray-600">5-Star Reviews</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Testimonials -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">What Our Customers Say</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed italic">"E-megaTask has completely transformed my shopping habits. The quality of their eco-friendly products is outstanding, and I love that I'm making a positive impact on the environment with every purchase."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-green-600 font-bold text-lg">SJ</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Sarah Johnson</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed italic">"The affiliate program is amazing! I've been able to earn extra income while promoting products I genuinely believe in. The support team is incredibly helpful and responsive."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-blue-600 font-bold text-lg">MC</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Michael Chen</h4>
+                            <p class="text-sm text-gray-500">Affiliate Partner</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed italic">"Fast shipping, excellent customer service, and products that actually live up to their eco-friendly claims. I've recommended E-megaTask to all my friends and family!"</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-purple-600 font-bold text-lg">EP</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Emily Parker</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 4 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed italic">"I've been using their organic health supplements for 6 months now and feel amazing. The quality is top-notch and I appreciate the sustainable packaging."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-pink-600 font-bold text-lg">DM</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">David Martinez</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed italic">"The kitchen products are fantastic! Everything from bamboo utensils to reusable containers - all high quality and truly sustainable. Worth every penny."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-yellow-600 font-bold text-lg">LT</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Lisa Thompson</h4>
+                            <p class="text-sm text-gray-500">Verified Customer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 6 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-center mb-4">
+                        <div class="text-yellow-400 text-xl">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6 leading-relaxed italic">"As an affiliate, I've earned over $5,000 in just 3 months! The commission structure is fair and payments are always on time. Highly recommend joining the program."</p>
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center mr-4">
+                            <span class="text-indigo-600 font-bold text-lg">JW</span>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">James Wilson</h4>
+                            <p class="text-sm text-gray-500">Affiliate Partner</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Testimonials Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Video Testimonials</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Hear directly from our customers about their experience with E-megaTask
+            </p>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="100">
+                    <div class="relative h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-white text-6xl opacity-80 hover:opacity-100 transition cursor-pointer"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Rachel's Sustainability Journey</h4>
+                        <p class="text-sm text-gray-600">How E-megaTask helped her go zero-waste</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="200">
+                    <div class="relative h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-white text-6xl opacity-80 hover:opacity-100 transition cursor-pointer"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Tom's Affiliate Success Story</h4>
+                        <p class="text-sm text-gray-600">From $0 to $10K monthly earnings</p>
+                    </div>
+                </div>
+                <div class="bg-gray-100 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all" data-aos="fade-up" data-aos-delay="300">
+                    <div class="relative h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-play-circle text-white text-6xl opacity-80 hover:opacity-100 transition cursor-pointer"></i>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="font-bold text-gray-800 mb-2">Maria's Product Review</h4>
+                        <p class="text-sm text-gray-600">Unboxing her favorite eco-products</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-bold mb-4">Join Our Happy Customers</h2>
+                <p class="text-xl text-green-100 mb-8">Start your sustainable shopping journey today</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition">
+                        Shop Now
+                    </a>
+                    <a href="signup.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-green-600 transition">
+                        Become an Affiliate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+                <!-- About Section -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Sustainable shopping for a better planet.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-green-500 transition text-sm">About Us</a></li>
+                        <li><a href="career.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
+                        <li><a href="press.html" class="text-gray-400 hover:text-green-500 transition text-sm">Press & Media</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-green-500 transition text-sm">Blog</a></li>
+                        <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500 transition text-sm">Testimonials</a></li>
+                        <li><a href="sustainability.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#kitchen" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
+                        <li><a href="index.html#health" class="text-gray-400 hover:text-green-500 transition text-sm">Health</a></li>
+                        <li><a href="index.html#electronics" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
+                        <li><a href="index.html#grocery" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Returns</a></li>
+                    </ul>
+                </div>
+
+                <!-- My Account -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2">
+                        <li><a href="login.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sign In</a></li>
+                        <li><a href="signup.html" class="text-gray-400 hover:text-green-500 transition text-sm">Register</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-green-500 transition text-sm">My Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-6 border-t border-gray-700">
+                <p class="text-gray-500 text-sm text-center">&copy; 2026 E-megaTask. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+    </script>
+</body>
+</html>

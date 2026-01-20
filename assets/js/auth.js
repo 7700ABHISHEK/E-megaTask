@@ -293,9 +293,17 @@ if (loginForm) {
                     // Show success message
                     showNotification(`Welcome back, ${userData.name}!`);
                     
-                    // Redirect to home page after 1.5 seconds
+                    // Check if there's a redirect URL stored
+                    const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
+                    
+                    // Redirect after 1.5 seconds
                     setTimeout(() => {
-                        window.location.href = 'index.html';
+                        if (redirectUrl) {
+                            sessionStorage.removeItem('redirectAfterLogin');
+                            window.location.href = redirectUrl;
+                        } else {
+                            window.location.href = 'index.html';
+                        }
                     }, 1500);
                 } else {
                     showNotification('Invalid email or password', 'error');

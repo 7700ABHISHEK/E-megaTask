@@ -1,8 +1,18 @@
 // Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
+// Initialize cart count on page load
+function updateCartCount() {
+    const cartCount = cart.length;
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+        cartCountElement.textContent = cartCount;
+    }
+}
+
 // Initialize cart page
 document.addEventListener('DOMContentLoaded', () => {
+    updateCartCount();
     renderCart();
     updatePriceSummary();
 });
@@ -38,8 +48,8 @@ function renderCart() {
                         <h3 class="cart-item-name">${item.name}</h3>
                         <p class="cart-item-description">${item.description}</p>
                         <div class="cart-item-price">
-                            <span class="current-price">$${item.price.toFixed(2)}</span>
-                            <span class="original-price">$${originalPrice.toFixed(2)}</span>
+                            <span class="current-price">${item.price.toFixed(2)}</span>
+                            <span class="original-price">${originalPrice.toFixed(2)}</span>
                             <span class="discount-badge">${discount}% OFF</span>
                         </div>
                     </div>
@@ -158,22 +168,23 @@ function updatePriceSummary() {
 
     // Update summary elements
     document.getElementById('summaryItemCount').textContent = totalItems;
-    document.getElementById('summaryPrice').textContent = `$${totalOriginalPrice.toFixed(2)}`;
-    document.getElementById('summaryDiscount').textContent = `-$${discount.toFixed(2)}`;
+    document.getElementById('summaryPrice').textContent = `${totalOriginalPrice.toFixed(2)}`;
+    document.getElementById('summaryDiscount').textContent = `-${discount.toFixed(2)}`;
     
     if (deliveryCharge === 0) {
         document.getElementById('summaryDelivery').innerHTML = '<span class="text-green-600">FREE</span>';
     } else {
-        document.getElementById('summaryDelivery').textContent = `$${deliveryCharge.toFixed(2)}`;
+        document.getElementById('summaryDelivery').textContent = `${deliveryCharge.toFixed(2)}`;
     }
     
-    document.getElementById('summaryTotal').textContent = `$${finalTotal.toFixed(2)}`;
-    document.getElementById('totalSavings').textContent = `$${discount.toFixed(2)}`;
+    document.getElementById('summaryTotal').textContent = `${finalTotal.toFixed(2)}`;
+    document.getElementById('totalSavings').textContent = `${discount.toFixed(2)}`;
 }
 
 // Save cart to localStorage
 function saveCart() {
     localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
 }
 
 // Checkout button
@@ -189,60 +200,22 @@ document.getElementById('checkoutBtn').addEventListener('click', () => {
     if (!session) {
         const confirmLogin = confirm('Please login to proceed with checkout. Would you like to login now?');
         if (confirmLogin) {
-            // Store current page to redirect back after login
-            sessionStorage.setItem('redirectAfterLogin', 'cart.html');
+            // Store redirect to checkout after login
+            sessionStorage.setItem('redirectAfterLogin', 'checkout.html');
             window.location.href = 'login.html';
         }
         return;
     }
 
-    // Calculate total
-    let total = 0;
-    cart.forEach(item => {
-        total += item.price * item.quantity;
-    });
-
-    const deliveryCharge = total >= 50 ? 0 : 5.99;
-    const finalTotal = total + deliveryCharge;
-
-    // Simulate checkout
-    const confirmCheckout = confirm(
-        `Order Summary:\n\n` +
-        `Items: ${cart.length}\n` +
-        `Subtotal: $${total.toFixed(2)}\n` +
-        `Delivery: ${deliveryCharge === 0 ? 'FREE' : '$' + deliveryCharge.toFixed(2)}\n` +
-        `Total: $${finalTotal.toFixed(2)}\n\n` +
-        `Proceed to payment?`
-    );
-
-    if (confirmCheckout) {
-        showNotification('Order placed successfully! 🎉');
-        setTimeout(() => {
-            cart = [];
-            saveCart();
-            renderCart();
-            updatePriceSummary();
-            showNotification('Thank you for shopping with EcoShop!');
-        }, 1500);
-    }
+    // Redirect to checkout page
+    window.location.href = 'checkout.html';
 });
 
 // Account button functionality
 document.getElementById('accountBtn').addEventListener('click', () => {
     const session = localStorage.getItem('session') || sessionStorage.getItem('session');
-    
     if (session) {
-        const sessionData = JSON.parse(session);
-        const confirmLogout = confirm(`Hello ${sessionData.name}!\n\nWould you like to logout?`);
-        
-        if (confirmLogout) {
-            localStorage.removeItem('session');
-            sessionStorage.removeItem('session');
-            showNotification('Logged out successfully!');
-            setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 1500);
-        }
+        window.location.href = 'profile.html';
     } else {
         window.location.href = 'login.html';
     }

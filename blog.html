@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+
+                <!-- Navigation Links - Desktop -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">About Us</a>
+                    <a href="blog.html" class="nav-link text-green-600 font-medium">Blog</a>
+                    <a href="index.html#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Shop</a>
+                </div>
+
+                <!-- Account & Cart Buttons -->
+                <div class="flex items-center space-x-4">
+                    <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                        <i class="fas fa-user text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Account</span>
+                    </a>
+                    <a href="cart.html" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Cart</span>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">About Us</a>
+                    <a href="blog.html" class="nav-link text-green-600 font-medium py-2">Blog</a>
+                    <a href="index.html#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Shop</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Eco Living Blog</h1>
+                <p class="text-xl md:text-2xl text-green-100">Tips, guides, and stories for sustainable living</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8" data-aos="fade-up">Featured Article</h2>
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                    <div class="grid md:grid-cols-2 gap-0">
+                        <div class="relative h-64 md:h-auto">
+                            <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=800&q=80" alt="Featured Post" class="w-full h-full object-cover">
+                            <div class="absolute top-4 left-4">
+                                <span class="bg-green-600 text-white px-4 py-2 rounded-full text-sm font-semibold">Featured</span>
+                            </div>
+                        </div>
+                        <div class="p-8 md:p-12 flex flex-col justify-center">
+                            <div class="flex items-center gap-4 mb-4 text-sm text-gray-500">
+                                <span class="flex items-center gap-2"><i class="far fa-calendar"></i> Jan 15, 2026</span>
+                                <span class="flex items-center gap-2"><i class="far fa-clock"></i> 8 min read</span>
+                            </div>
+                            <h3 class="text-3xl font-bold text-gray-800 mb-4">10 Simple Ways to Reduce Plastic Waste in Your Daily Life</h3>
+                            <p class="text-gray-600 mb-6 leading-relaxed">Discover practical and easy-to-implement strategies that can help you significantly reduce your plastic consumption and make a positive impact on the environment.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition">
+                                Read Full Article <i class="fas fa-arrow-right ml-2"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center" data-aos="fade-up">Browse by Category</h2>
+                <div class="flex flex-wrap justify-center gap-3" data-aos="fade-up" data-aos-delay="100">
+                    <button class="category-filter-btn active" data-category="all">
+                        <i class="fas fa-th"></i> All Posts
+                    </button>
+                    <button class="category-filter-btn" data-category="sustainability">
+                        <i class="fas fa-leaf"></i> Sustainability
+                    </button>
+                    <button class="category-filter-btn" data-category="lifestyle">
+                        <i class="fas fa-spa"></i> Eco Lifestyle
+                    </button>
+                    <button class="category-filter-btn" data-category="products">
+                        <i class="fas fa-shopping-bag"></i> Product Reviews
+                    </button>
+                    <button class="category-filter-btn" data-category="tips">
+                        <i class="fas fa-lightbulb"></i> Tips & Guides
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-800 mb-12 text-center" data-aos="fade-up">Latest Articles</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Blog Post 1 -->
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&q=80" alt="Zero Waste Kitchen" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Sustainability</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Jan 12, 2026</span>
+                                <span class="flex items-center gap-1"><i class="far fa-clock"></i> 5 min</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition">Zero Waste Kitchen: A Beginner's Guide</h3>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Learn how to transform your kitchen into a zero-waste haven with these simple, practical tips.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold text-sm hover:text-green-700 transition">
+                                Read More <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 2 -->
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=600&q=80" alt="Eco-Friendly Products" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Product Reviews</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Jan 10, 2026</span>
+                                <span class="flex items-center gap-1"><i class="far fa-clock"></i> 6 min</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition">Top 5 Eco-Friendly Cleaning Products</h3>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Our honest review of the best natural cleaning products that actually work.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold text-sm hover:text-green-700 transition">
+                                Read More <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 3 -->
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?w=600&q=80" alt="Sustainable Fashion" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Eco Lifestyle</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Jan 8, 2026</span>
+                                <span class="flex items-center gap-1"><i class="far fa-clock"></i> 7 min</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition">Building a Sustainable Wardrobe</h3>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Tips for creating a timeless, eco-friendly wardrobe that reduces fashion waste.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold text-sm hover:text-green-700 transition">
+                                Read More <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 4 -->
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?w=600&q=80" alt="Composting Guide" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Tips & Guides</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Jan 5, 2026</span>
+                                <span class="flex items-center gap-1"><i class="far fa-clock"></i> 10 min</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition">Complete Guide to Home Composting</h3>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Everything you need to know to start composting at home, even in small spaces.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold text-sm hover:text-green-700 transition">
+                                Read More <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 5 -->
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?w=600&q=80" alt="Renewable Energy" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Sustainability</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Jan 3, 2026</span>
+                                <span class="flex items-center gap-1"><i class="far fa-clock"></i> 8 min</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition">Solar Power for Your Home: Is It Worth It?</h3>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">A comprehensive look at the costs, benefits, and considerations of residential solar panels.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold text-sm hover:text-green-700 transition">
+                                Read More <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- Blog Post 6 -->
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-2" data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&q=80" alt="Organic Gardening" class="w-full h-full object-cover hover:scale-110 transition-transform duration-500">
+                            <span class="absolute top-3 right-3 bg-yellow-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Tips & Guides</span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-3 mb-3 text-xs text-gray-500">
+                                <span class="flex items-center gap-1"><i class="far fa-calendar"></i> Dec 30, 2025</span>
+                                <span class="flex items-center gap-1"><i class="far fa-clock"></i> 9 min</span>
+                            </div>
+                            <h3 class="text-xl font-bold text-gray-800 mb-3 hover:text-green-600 transition">Starting Your Organic Garden This Spring</h3>
+                            <p class="text-gray-600 text-sm mb-4 leading-relaxed">Step-by-step guide to planning and planting your first organic vegetable garden.</p>
+                            <a href="#" class="inline-flex items-center text-green-600 font-semibold text-sm hover:text-green-700 transition">
+                                Read More <i class="fas fa-arrow-right ml-2 text-xs"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex justify-center items-center gap-2 mt-12" data-aos="fade-up">
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg font-semibold">1</button>
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition">2</button>
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition">3</button>
+                    <button class="px-4 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-50 transition">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter CTA -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <i class="fas fa-envelope-open-text text-5xl mb-6"></i>
+                <h2 class="text-3xl font-bold mb-4">Never Miss a Post</h2>
+                <p class="text-xl text-green-100 mb-8">Subscribe to our newsletter for weekly eco-living tips and updates</p>
+                <div class="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email" class="flex-1 px-6 py-3 rounded-full text-gray-800 focus:outline-none focus:ring-2 focus:ring-white">
+                    <button class="bg-white text-green-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+                <!-- About Section -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Sustainable shopping for a better planet.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-green-500 transition text-sm">About Us</a></li>
+                        <li><a href="career.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
+                        <li><a href="press.html" class="text-gray-400 hover:text-green-500 transition text-sm">Press & Media</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-green-500 transition text-sm">Blog</a></li>
+                        <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500 transition text-sm">Testimonials</a></li>
+                        <li><a href="sustainability.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#kitchen" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
+                        <li><a href="index.html#health" class="text-gray-400 hover:text-green-500 transition text-sm">Health</a></li>
+                        <li><a href="index.html#electronics" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
+                        <li><a href="index.html#grocery" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Returns</a></li>
+                    </ul>
+                </div>
+
+                <!-- My Account -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2">
+                        <li><a href="login.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sign In</a></li>
+                        <li><a href="signup.html" class="text-gray-400 hover:text-green-500 transition text-sm">Register</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-green-500 transition text-sm">My Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-6 border-t border-gray-700">
+                <p class="text-gray-500 text-sm text-center">&copy; 2026 E-megaTask. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+    </script>
+</body>
+</html>

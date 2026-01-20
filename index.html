@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoShop - Sustainable Shopping</title>
+    <title>E-megaTask - Sustainable Shopping</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Swiper CSS -->
@@ -18,22 +18,22 @@
         <div class="container mx-auto px-4">
             <div class="flex items-center gap-5 justify-between py-4">
                 <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    <img src="assets/images/WhatsApp Image 2026-01-19 at 17.55.46.jpeg" alt="EMT Logo" class="h-12 w-auto">
-                </div>
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
 
                 <!-- Navigation Links - Desktop -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
-                    <a href="#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Kitchen</a>
-                    <a href="#health" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
-                    <a href="#electronics" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Electronics</a>
-                    <a href="#grocery" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Grocery</a>
-                    <a href="#lifestyle" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Lifestyle</a>
+                <div class="hidden xl:flex items-center space-x-6">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Kitchen</a>
+                    <a href="health.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
+                    <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Electronics</a>
+                    <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Grocery</a>
+                    <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Lifestyle</a>
                 </div>
 
                 <!-- Search Bar -->
-                <div class="hidden md:flex items-center flex-1 max-w-md mx-8">
+                <div class="hidden xl:flex items-center flex-1 max-w-md mx-8">
                     <div class="relative w-full">
                         <input 
                             type="text" 
@@ -49,10 +49,12 @@
 
                 <!-- Account & Cart Buttons -->
                 <div class="flex items-center space-x-4">
-                    <button id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
-                        <i class="fas fa-user text-xl"></i>
-                        <span class="hidden sm:inline font-medium">Account</span>
-                    </button>
+                    <div id="accountContainer" class="relative">
+                        <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                            <i class="fas fa-user text-xl"></i>
+                            <span class="hidden sm:inline font-medium">Account</span>
+                        </a>
+                    </div>
                     <div id="cartContainer" class="relative">
                         <button id="cartBtn" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
                             <i class="fas fa-shopping-cart text-xl"></i>
@@ -63,20 +65,20 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl ml-4">
+                <button id="mobileMenuBtn" class="xl:hidden text-gray-700 text-2xl ml-4">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
 
             <!-- Mobile Menu -->
-            <div id="mobileMenu" class="hidden lg:hidden pb-4">
+            <div id="mobileMenu" class="hidden xl:hidden pb-4">
                 <div class="flex flex-col space-y-3">
-                    <a href="#home" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
-                    <a href="#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Kitchen</a>
-                    <a href="#health" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
-                    <a href="#electronics" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Electronics</a>
-                    <a href="#grocery" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Grocery</a>
-                    <a href="#lifestyle" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Lifestyle</a>
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Kitchen</a>
+                    <a href="health.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
+                    <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Electronics</a>
+                    <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Grocery</a>
+                    <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Lifestyle</a>
                     <!-- Mobile Search -->
                     <div class="relative pt-2">
                         <input 
@@ -89,10 +91,10 @@
                         </button>
                     </div>
                     <!-- Mobile Account -->
-                    <button id="mobileAccountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 font-medium border-t border-gray-200 mt-2 pt-4">
+                    <a href="profile.html" id="mobileAccountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 font-medium border-t border-gray-200 mt-2 pt-4">
                         <i class="fas fa-user text-lg"></i>
                         <span>My Account</span>
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -127,6 +129,9 @@
 
     <!-- Sidebar Overlay -->
     <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Account Dropdown Overlay -->
+    <div id="accountDropdownOverlay" class="account-dropdown-overlay"></div>
 
     <!-- Main Banner Slider -->
     <section id="home" class="banner-slider">
@@ -173,7 +178,7 @@
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8" data-aos="fade-down">Shop by Category</h2>
             <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
                 <!-- Kitchen Category -->
-                <a href="#kitchen" class="category-card" data-aos="fade-up" data-aos-delay="50">
+                <a href="kitchen.html" class="category-card" data-aos="fade-up" data-aos-delay="50">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-utensils text-4xl text-green-600"></i>
                     </div>
@@ -181,7 +186,7 @@
                 </a>
                 
                 <!-- Health Supplement Category -->
-                <a href="#health" class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <a href="health.html" class="category-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-heartbeat text-4xl text-green-600"></i>
                     </div>
@@ -189,7 +194,7 @@
                 </a>
                 
                 <!-- Electronics Category -->
-                <a href="#electronics" class="category-card" data-aos="fade-up" data-aos-delay="150">
+                <a href="electronics.html" class="category-card" data-aos="fade-up" data-aos-delay="150">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-laptop text-4xl text-green-600"></i>
                     </div>
@@ -197,7 +202,7 @@
                 </a>
                 
                 <!-- Grocery Category -->
-                <a href="#grocery" class="category-card" data-aos="fade-up" data-aos-delay="200">
+                <a href="grocery.html" class="category-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-shopping-basket text-4xl text-green-600"></i>
                     </div>
@@ -205,19 +210,19 @@
                 </a>
                 
                 <!-- Lifestyle Category -->
-                <a href="#lifestyle" class="category-card" data-aos="fade-up" data-aos-delay="250">
+                <a href="lifestyle.html" class="category-card" data-aos="fade-up" data-aos-delay="250">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-spa text-4xl text-green-600"></i>
                     </div>
                     <h3 class="category-title">Lifestyle</h3>
                 </a>
                 
-                <!-- Beauty Category -->
-                <a href="#beauty" class="category-card" data-aos="fade-up" data-aos-delay="300">
+                <!-- New Arrivals Category -->
+                <a href="new-arrivals.html" class="category-card" data-aos="fade-up" data-aos-delay="300">
                     <div class="category-icon-wrapper">
-                        <i class="fas fa-leaf text-4xl text-green-600"></i>
+                        <i class="fas fa-star text-4xl text-green-600"></i>
                     </div>
-                    <h3 class="category-title">Beauty</h3>
+                    <h3 class="category-title">New Arrivals</h3>
                 </a>
             </div>
         </div>
@@ -278,8 +283,7 @@
                 <!-- About Section -->
                 <div class="lg:col-span-2" data-aos="fade-up" data-aos-once="true">
                     <div class="flex items-center space-x-2 mb-4">
-                        <i class="fas fa-leaf text-green-500 text-2xl"></i>
-                        <span class="text-2xl font-bold">EcoShop</span>
+                        <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-12 w-auto">
                     </div>
                     <p class="text-gray-400 text-sm mb-4">Sustainable shopping for a better planet. We offer eco-friendly products that help you live a greener lifestyle.</p>
                     <div class="flex space-x-4 mb-4">
@@ -314,7 +318,7 @@
                     <h3 class="text-lg font-semibold mb-4">Company</h3>
                     <ul class="space-y-2">
                         <li><a href="about.html" class="text-gray-400 hover:text-green-500 transition text-sm">About Us</a></li>
-                        <li><a href="careers.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
+                        <li><a href="career.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
                         <li><a href="press.html" class="text-gray-400 hover:text-green-500 transition text-sm">Press & Media</a></li>
                         <li><a href="blog.html" class="text-gray-400 hover:text-green-500 transition text-sm">Blog</a></li>
                         <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500 transition text-sm">Testimonials</a></li>
@@ -326,11 +330,11 @@
                 <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
                     <h3 class="text-lg font-semibold mb-4">Shop</h3>
                     <ul class="space-y-2">
-                        <li><a href="#kitchen" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
-                        <li><a href="#health" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
-                        <li><a href="#electronics" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
-                        <li><a href="#grocery" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
-                        <li><a href="#lifestyle" class="text-gray-400 hover:text-green-500 transition text-sm">Lifestyle</a></li>
+                        <li><a href="kitchen.html" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
+                        <li><a href="health.html" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
+                        <li><a href="electronics.html" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
+                        <li><a href="grocery.html" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
+                        <li><a href="lifestyle.html" class="text-gray-400 hover:text-green-500 transition text-sm">Lifestyle</a></li>
                         <li><a href="deals.html" class="text-gray-400 hover:text-green-500 transition text-sm">Special Deals</a></li>
                         <li><a href="new-arrivals.html" class="text-gray-400 hover:text-green-500 transition text-sm">New Arrivals</a></li>
                     </ul>
@@ -371,21 +375,21 @@
                     <i class="fas fa-map-marker-alt text-green-500 text-xl"></i>
                     <div>
                         <p class="text-sm font-semibold">Visit Us</p>
-                        <p class="text-gray-400 text-xs">123 Eco Street, Green City</p>
+                        <p class="text-gray-400 text-xs">232, palladium plaza, vip road, surat, Gujarat</p>
                     </div>
                 </div>
                 <div class="flex items-center justify-center space-x-3">
                     <i class="fas fa-phone text-green-500 text-xl"></i>
                     <div>
                         <p class="text-sm font-semibold">Call Us</p>
-                        <a href="tel:+1234567890" class="text-gray-400 hover:text-green-500 text-xs">+1 (234) 567-890</a>
+                        <a href="tel:8320462692" class="text-gray-400 hover:text-green-500 text-xs">8320462692</a>
                     </div>
                 </div>
                 <div class="flex items-center justify-center md:justify-end space-x-3">
                     <i class="fas fa-envelope text-green-500 text-xl"></i>
                     <div>
                         <p class="text-sm font-semibold">Email Us</p>
-                        <a href="mailto:info@ecoshop.com" class="text-gray-400 hover:text-green-500 text-xs">info@ecoshop.com</a>
+                        <a href="mailto:emegataskonline@gmail.com" class="text-gray-400 hover:text-green-500 text-xs">emegataskonline@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -394,7 +398,7 @@
             <div class="pt-6">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p class="text-gray-500 text-sm text-center md:text-left" data-aos="fade-up" data-aos-once="true">
-                        &copy; 2026 EcoShop. All rights reserved. | Designed with <i class="fas fa-heart text-red-500"></i> for a greener planet
+                        &copy; 2026 E-megaTask. All rights reserved. | Designed with <i class="fas fa-heart text-red-500"></i> for a greener planet
                     </p>
                     <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
                         <a href="terms.html" class="text-gray-400 hover:text-green-500 transition text-sm">Terms & Conditions</a>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Info - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+                <a href="index.html" class="flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                    <i class="fas fa-home"></i>
+                    <span>Back to Home</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="py-16">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="text-center mb-12">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">Shipping Information</h1>
+                <p class="text-gray-600">Fast, reliable, and eco-friendly shipping options</p>
+            </div>
+
+            <div class="bg-gradient-to-br from-green-600 to-green-700 rounded-lg p-8 text-white text-center mb-8">
+                <i class="fas fa-truck text-6xl mb-4"></i>
+                <h2 class="text-3xl font-bold mb-2">FREE SHIPPING</h2>
+                <p class="text-xl">On all orders over $50</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <i class="fas fa-shipping-fast text-blue-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Standard Shipping</h3>
+                    <p class="text-gray-600 mb-4">5-7 Business Days</p>
+                    <p class="text-2xl font-bold text-green-600">$5.99</p>
+                    <p class="text-sm text-gray-500 mt-2">Free over $50</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center border-2 border-green-600">
+                    <div class="bg-green-600 text-white text-xs font-bold px-3 py-1 rounded-full inline-block mb-2">POPULAR</div>
+                    <i class="fas fa-rocket text-purple-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Express Shipping</h3>
+                    <p class="text-gray-600 mb-4">2-3 Business Days</p>
+                    <p class="text-2xl font-bold text-green-600">$12.99</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 text-center">
+                    <i class="fas fa-bolt text-yellow-600 text-4xl mb-4"></i>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Overnight</h3>
+                    <p class="text-gray-600 mb-4">Next Business Day</p>
+                    <p class="text-2xl font-bold text-green-600">$24.99</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Shipping Details</h2>
+
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-map-marked-alt text-green-600 mr-2"></i>
+                            Shipping Locations
+                        </h3>
+                        <p class="text-gray-600">We currently ship to all 50 US states and Canada. International shipping coming soon!</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-clock text-green-600 mr-2"></i>
+                            Processing Time
+                        </h3>
+                        <p class="text-gray-600">Orders are processed within 1-2 business days. Orders placed on weekends or holidays will be processed the next business day.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-box text-green-600 mr-2"></i>
+                            Order Tracking
+                        </h3>
+                        <p class="text-gray-600">Once your order ships, you'll receive a tracking number via email. Track your package anytime on our Track Order page.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-gray-800 mb-3 flex items-center">
+                            <i class="fas fa-leaf text-green-600 mr-2"></i>
+                            Eco-Friendly Packaging
+                        </h3>
+                        <p class="text-gray-600">All orders are shipped in recyclable, biodegradable packaging materials. We're committed to reducing our environmental impact.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg">
+                <h3 class="font-bold text-gray-800 mb-3 flex items-center">
+                    <i class="fas fa-info-circle text-blue-600 mr-2"></i>
+                    Important Shipping Notes
+                </h3>
+                <ul class="text-gray-600 space-y-2">
+                    <li>• Shipping times are estimates and may vary during peak seasons</li>
+                    <li>• PO Box addresses may have limited shipping options</li>
+                    <li>• Signature may be required for high-value orders</li>
+                    <li>• We ship Monday through Friday (excluding holidays)</li>
+                    <li>• Orders placed after 2 PM EST will be processed the next business day</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

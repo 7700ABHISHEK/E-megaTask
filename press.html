@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Press & Media - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .press-hero {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .press-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-20px, -20px); }
+        }
+        .press-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        .press-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(22, 163, 74, 0.2);
+        }
+        .media-kit-card {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid #16a34a;
+        }
+        .media-kit-card:hover {
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">About</a>
+                    <a href="career.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Careers</a>
+                    <a href="press.html" class="nav-link text-green-600 font-medium">Press & Media</a>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                        <i class="fas fa-user text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Account</span>
+                    </a>
+                    <a href="cart.html" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Cart</span>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div id="mobileMenu" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">About</a>
+                    <a href="career.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Careers</a>
+                    <a href="press.html" class="nav-link text-green-600 font-medium py-2">Press & Media</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="press-hero py-20 text-white relative">
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center max-w-3xl mx-auto" data-aos="fade-up">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">Press & Media</h1>
+                <p class="text-xl md:text-2xl mb-8 text-green-50">Stay updated with E-megaTask's latest news, announcements, and media resources.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Latest News Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Latest News</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Recent press releases and company announcements
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- News Item 1 -->
+                <div class="press-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1556761175-b413da4baf72?w=800&q=80" alt="Press Release" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">PRESS RELEASE</span>
+                            <span class="text-gray-500 text-sm">Jan 15, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">E-megaTask Reaches 10,000 Happy Customers Milestone</h3>
+                        <p class="text-gray-600 mb-4">We're thrilled to announce that we've reached a major milestone of serving 10,000 satisfied customers committed to sustainable living.</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News Item 2 -->
+                <div class="press-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800&q=80" alt="Press Release" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">ANNOUNCEMENT</span>
+                            <span class="text-gray-500 text-sm">Jan 10, 2026</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">New Partnership with Leading Eco-Brands</h3>
+                        <p class="text-gray-600 mb-4">E-megaTask announces strategic partnerships with top sustainable brands to expand our eco-friendly product catalog.</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News Item 3 -->
+                <div class="press-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&q=80" alt="Press Release" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-xs font-semibold">AWARD</span>
+                            <span class="text-gray-500 text-sm">Dec 28, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">E-megaTask Wins "Best Sustainable E-Commerce" Award</h3>
+                        <p class="text-gray-600 mb-4">Recognized for our commitment to environmental sustainability and innovative affiliate program model.</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News Item 4 -->
+                <div class="press-card" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Press Release" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">PRESS RELEASE</span>
+                            <span class="text-gray-500 text-sm">Dec 20, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">$2 Million Paid to Affiliates in 2025</h3>
+                        <p class="text-gray-600 mb-4">Our affiliate program continues to empower individuals, with over $2 million in commissions paid out this year.</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News Item 5 -->
+                <div class="press-card" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80" alt="Press Release" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-semibold">ANNOUNCEMENT</span>
+                            <span class="text-gray-500 text-sm">Dec 15, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Expansion to New Product Categories</h3>
+                        <p class="text-gray-600 mb-4">Introducing new sustainable product lines including home decor, pet supplies, and outdoor gear.</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- News Item 6 -->
+                <div class="press-card" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?w=800&q=80" alt="Press Release" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <div class="flex items-center gap-2 mb-3">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-xs font-semibold">PRESS RELEASE</span>
+                            <span class="text-gray-500 text-sm">Dec 5, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Carbon Neutral Shipping Initiative Launched</h3>
+                        <p class="text-gray-600 mb-4">E-megaTask commits to 100% carbon-neutral shipping across all orders, offsetting environmental impact.</p>
+                        <a href="#" class="text-green-600 hover:text-green-700 font-semibold flex items-center">
+                            Read More <i class="fas fa-arrow-right ml-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Media Coverage Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Featured In</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                E-megaTask has been featured in leading publications and media outlets
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center">
+                <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="50">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-600">TechCrunch</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-600">Forbes</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="150">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-600">Entrepreneur</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-600">Fast Company</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="250">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-600">Inc. Magazine</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center p-6 bg-white rounded-lg shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                    <div class="text-center">
+                        <i class="fas fa-newspaper text-4xl text-gray-400 mb-2"></i>
+                        <p class="text-sm font-semibold text-gray-600">Business Insider</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Media Kit Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Media Kit</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Download our brand assets, logos, and company information
+            </p>
+            <div class="max-w-4xl mx-auto">
+                <div class="media-kit-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-800 mb-4">Brand Assets</h3>
+                            <p class="text-gray-600 mb-6">Access our official logos, brand guidelines, product images, and marketing materials for media use.</p>
+                            <ul class="space-y-3 mb-6">
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>High-resolution logos (PNG, SVG)</span>
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Brand color palette & typography</span>
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Product photography library</span>
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Company fact sheet & statistics</span>
+                                </li>
+                                <li class="flex items-center text-gray-700">
+                                    <i class="fas fa-check-circle text-green-600 mr-3"></i>
+                                    <span>Executive team photos & bios</span>
+                                </li>
+                            </ul>
+                            <button class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-semibold flex items-center">
+                                <i class="fas fa-download mr-2"></i> Download Media Kit
+                            </button>
+                        </div>
+                        <div class="bg-white rounded-lg p-6 flex items-center justify-center">
+                            <div class="text-center">
+                                <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-32 w-auto mx-auto mb-4">
+                                <p class="text-gray-600 text-sm">Official E-megaTask Logo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Company Facts Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Company Facts & Figures</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="50">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">2020</div>
+                    <div class="text-gray-600 font-medium">Founded</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">10K+</div>
+                    <div class="text-gray-600 font-medium">Customers</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="150">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">5K+</div>
+                    <div class="text-gray-600 font-medium">Affiliates</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="text-4xl md:text-5xl font-bold text-green-600 mb-2">500+</div>
+                    <div class="text-gray-600 font-medium">Products</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Press Contact Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-4xl font-bold text-gray-800 mb-6" data-aos="fade-up">Press Inquiries</h2>
+                <p class="text-gray-600 mb-8 text-lg" data-aos="fade-up" data-aos-delay="100">
+                    For media inquiries, interview requests, or additional information, please contact our press team.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
+                    <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-envelope text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Email</h3>
+                        <a href="mailto:emegataskonline@gmail.com" class="text-green-600 hover:text-green-700 font-semibold">emegataskonline@gmail.com</a>
+                    </div>
+                    <div class="bg-gray-50 p-6 rounded-lg" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-phone text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Phone</h3>
+                        <a href="tel:8320462692" class="text-green-600 hover:text-green-700 font-semibold">8320462692</a>
+                    </div>
+                </div>
+                <div class="bg-green-50 border-2 border-green-200 rounded-lg p-6" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Media Response Time</h3>
+                    <p class="text-gray-600">We typically respond to press inquiries within 24 hours during business days.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12 mt-16">
+        <div class="container mx-auto px-4">
+            <!-- Newsletter Section -->
+            <div class="bg-gray-700 rounded-lg p-6 mb-10" data-aos="fade-up" data-aos-once="true">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-xl font-bold mb-2">Subscribe to Our Newsletter</h3>
+                        <p class="text-gray-300 text-sm">Get exclusive deals, eco-tips, and new product updates!</p>
+                    </div>
+                    <div class="flex w-full md:w-auto gap-2">
+                        <input type="email" placeholder="Enter your email" class="px-4 py-2 rounded-lg bg-gray-600 text-white border border-gray-500 focus:outline-none focus:ring-2 focus:ring-green-500 w-full md:w-64">
+                        <button class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded-lg font-semibold transition whitespace-nowrap">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Main Section -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+                <!-- About Section -->
+                <div class="lg:col-span-2" data-aos="fade-up" data-aos-once="true">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Sustainable shopping for a better planet. We offer eco-friendly products that help you live a greener lifestyle.</p>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                            <i class="fab fa-youtube text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition">
+                            <i class="fab fa-pinterest text-xl"></i>
+                        </a>
+                    </div>
+                    <div class="flex items-center space-x-3">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" class="h-6 opacity-70">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa" class="h-6 opacity-70">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" class="h-6 opacity-70">
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-green-500 transition text-sm">About Us</a></li>
+                        <li><a href="career.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
+                        <li><a href="press.html" class="text-gray-400 hover:text-green-500 transition text-sm">Press & Media</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-green-500 transition text-sm">Blog</a></li>
+                        <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500 transition text-sm">Testimonials</a></li>
+                        <li><a href="sustainability.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop -->
+                <div data-aos="fade-up" data-aos-delay="100" data-aos-once="true">
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#kitchen" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
+                        <li><a href="index.html#health" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
+                        <li><a href="index.html#electronics" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
+                        <li><a href="index.html#grocery" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
+                        <li><a href="index.html#lifestyle" class="text-gray-400 hover:text-green-500 transition text-sm">Lifestyle</a></li>
+                        <li><a href="deals.html" class="text-gray-400 hover:text-green-500 transition text-sm">Special Deals</a></li>
+                        <li><a href="new-arrivals.html" class="text-gray-400 hover:text-green-500 transition text-sm">New Arrivals</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div data-aos="fade-up" data-aos-delay="150" data-aos-once="true">
+                    <h3 class="text-lg font-semibold mb-4">Customer Service</h3>
+                    <ul class="space-y-2">
+                        <li><a href="contact.html" class="text-gray-400 hover:text-green-500 transition text-sm">Contact Us</a></li>
+                        <li><a href="faq.html" class="text-gray-400 hover:text-green-500 transition text-sm">FAQ</a></li>
+                        <li><a href="orders.html" class="text-gray-400 hover:text-green-500 transition text-sm">Track Order</a></li>
+                        <li><a href="returns.html" class="text-gray-400 hover:text-green-500 transition text-sm">Returns & Refunds</a></li>
+                        <li><a href="shipping.html" class="text-gray-400 hover:text-green-500 transition text-sm">Shipping Info</a></li>
+                        <li><a href="size-guide.html" class="text-gray-400 hover:text-green-500 transition text-sm">Size Guide</a></li>
+                        <li><a href="gift-cards.html" class="text-gray-400 hover:text-green-500 transition text-sm">Gift Cards</a></li>
+                    </ul>
+                </div>
+
+                <!-- My Account -->
+                <div data-aos="fade-up" data-aos-delay="200" data-aos-once="true">
+                    <h3 class="text-lg font-semibold mb-4">My Account</h3>
+                    <ul class="space-y-2">
+                        <li><a href="login.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sign In</a></li>
+                        <li><a href="signup.html" class="text-gray-400 hover:text-green-500 transition text-sm">Register</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-green-500 transition text-sm">My Cart</a></li>
+                        <li><a href="wishlist.html" class="text-gray-400 hover:text-green-500 transition text-sm">Wishlist</a></li>
+                        <li><a href="profile.html" class="text-gray-400 hover:text-green-500 transition text-sm">My Profile</a></li>
+                        <li><a href="order-history.html" class="text-gray-400 hover:text-green-500 transition text-sm">Order History</a></li>
+                        <li><a href="rewards.html" class="text-gray-400 hover:text-green-500 transition text-sm">Rewards Program</a></li>
+                    </ul>
+                </div>
+            </div>
+
+
+            <!-- Contact Info Bar -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 py-6 border-t border-b border-gray-700 mb-6" data-aos="fade-up" data-aos-once="true">
+                <div class="flex items-center justify-center md:justify-start space-x-3">
+                    <i class="fas fa-map-marker-alt text-green-500 text-xl"></i>
+                    <div>
+                        <p class="text-sm font-semibold">Visit Us</p>
+                        <p class="text-gray-400 text-xs">232, palladium plaza, vip road, surat, Gujarat</p>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center space-x-3">
+                    <i class="fas fa-phone text-green-500 text-xl"></i>
+                    <div>
+                        <p class="text-sm font-semibold">Call Us</p>
+                        <a href="tel:8320462692" class="text-gray-400 hover:text-green-500 text-xs">8320462692</a>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center md:justify-end space-x-3">
+                    <i class="fas fa-envelope text-green-500 text-xl"></i>
+                    <div>
+                        <p class="text-sm font-semibold">Email Us</p>
+                        <a href="mailto:emegataskonline@gmail.com" class="text-gray-400 hover:text-green-500 text-xs">emegataskonline@gmail.com</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-6">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm text-center md:text-left" data-aos="fade-up" data-aos-once="true">
+                        &copy; 2026 E-megaTask. All rights reserved. | Designed with <i class="fas fa-heart text-red-500"></i> for a greener planet
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="50" data-aos-once="true">
+                        <a href="terms.html" class="text-gray-400 hover:text-green-500 transition text-sm">Terms & Conditions</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="privacy.html" class="text-gray-400 hover:text-green-500 transition text-sm">Privacy Policy</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="cookies.html" class="text-gray-400 hover:text-green-500 transition text-sm">Cookie Policy</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="accessibility.html" class="text-gray-400 hover:text-green-500 transition text-sm">Accessibility</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="sitemap.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize AOS
+        document.addEventListener('DOMContentLoaded', function() {
+            AOS.init({
+                duration: 600,
+                easing: 'ease-out-cubic',
+                once: false,
+                mirror: true,
+                offset: 50,
+                delay: 0,
+                anchorPlacement: 'top-bottom',
+                disable: false
+            });
+        });
+    </script>
+</body>
+</html>

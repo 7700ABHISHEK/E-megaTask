@@ -39,12 +39,14 @@ function updateAllProductButtons() {
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    const icon = mobileMenuBtn.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-});
+if (mobileMenuBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+        const icon = mobileMenuBtn.querySelector('i');
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+    });
+}
 
 // Add to Cart Function
 function addToCart(productId) {
@@ -187,71 +189,89 @@ function showNotification(message) {
 
 // Search Functionality
 const searchInput = document.getElementById('searchInput');
-searchInput.addEventListener('input', (e) => {
-    const searchTerm = e.target.value.toLowerCase();
-    const filteredProducts = products.filter(product => 
-        product.name.toLowerCase().includes(searchTerm) ||
-        product.description.toLowerCase().includes(searchTerm) ||
-        product.category.toLowerCase().includes(searchTerm)
-    );
-    renderProducts(filteredProducts);
-});
+if (searchInput && typeof products !== 'undefined') {
+    searchInput.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        const filteredProducts = products.filter(product => 
+            product.name.toLowerCase().includes(searchTerm) ||
+            product.description.toLowerCase().includes(searchTerm) ||
+            product.category.toLowerCase().includes(searchTerm)
+        );
+        if (typeof renderProducts === 'function') {
+            renderProducts(filteredProducts);
+        }
+    });
+}
 
 // Account Button - Check if user is logged in
-document.getElementById('accountBtn').addEventListener('click', () => {
-    const session = localStorage.getItem('session') || sessionStorage.getItem('session');
-    
-    if (session) {
-        const sessionData = JSON.parse(session);
-        const confirmLogout = confirm(`Hello ${sessionData.name}!\n\nWould you like to logout?`);
+const accountBtn = document.getElementById('accountBtn');
+const accountContainer = document.getElementById('accountContainer');
+
+// Toggle account dropdown or navigate
+if (accountBtn) {
+    accountBtn.addEventListener('click', (e) => {
+        const session = localStorage.getItem('session') || sessionStorage.getItem('session');
         
-        if (confirmLogout) {
-            localStorage.removeItem('session');
-            sessionStorage.removeItem('session');
-            showNotification('Logged out successfully!');
-            setTimeout(() => {
-                window.location.href = 'login.html';
-            }, 1500);
+        // If not logged in, redirect to login page
+        if (!session) {
+            e.preventDefault();
+            window.location.href = 'login.html';
         }
-    } else {
-        window.location.href = 'login.html';
+        // If logged in, the href will handle navigation to profile.html
+    });
+}
+
+// Navigation functions
+function goToProfile() {
+    window.location.href = 'profile.html';
+}
+
+function goToLogin() {
+    window.location.href = 'login.html';
+}
+
+function goToSignup() {
+    window.location.href = 'signup.html';
+}
+
+function logoutFromDropdown() {
+    const confirmLogout = confirm('Are you sure you want to logout?');
+    
+    if (confirmLogout) {
+        localStorage.removeItem('session');
+        sessionStorage.removeItem('session');
+        
+        showNotification('Logged out successfully!');
+        
+        // Redirect to home page
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 500);
     }
-});
+}
 
 // Mobile Account Button - Same functionality
 const mobileAccountBtn = document.getElementById('mobileAccountBtn');
 if (mobileAccountBtn) {
-    mobileAccountBtn.addEventListener('click', () => {
+    mobileAccountBtn.addEventListener('click', (e) => {
         const session = localStorage.getItem('session') || sessionStorage.getItem('session');
         
-        if (session) {
-            const sessionData = JSON.parse(session);
-            const confirmLogout = confirm(`Hello ${sessionData.name}!\n\nWould you like to logout?`);
-            
-            if (confirmLogout) {
-                localStorage.removeItem('session');
-                sessionStorage.removeItem('session');
-                showNotification('Logged out successfully!');
-                setTimeout(() => {
-                    window.location.href = 'login.html';
-                }, 1500);
-            }
-        } else {
+        // If not logged in, redirect to login page
+        if (!session) {
+            e.preventDefault();
             window.location.href = 'login.html';
         }
-        
-        // Close mobile menu after clicking
-        mobileMenu.classList.add('hidden');
-        const icon = mobileMenuBtn.querySelector('i');
-        icon.classList.add('fa-bars');
-        icon.classList.remove('fa-times');
+        // If logged in, the href will handle navigation to profile.html
     });
 }
 
 // Cart Button - Navigate to cart page
-document.getElementById('cartBtn').addEventListener('click', () => {
-    window.location.href = 'cart.html';
-});
+const cartBtn = document.getElementById('cartBtn');
+if (cartBtn) {
+    cartBtn.addEventListener('click', () => {
+        window.location.href = 'cart.html';
+    });
+}
 
 // Cart Sidebar Functionality
 const cartContainer = document.getElementById('cartContainer');
@@ -263,65 +283,81 @@ const checkoutSidebarBtn = document.getElementById('checkoutSidebarBtn');
 
 let sidebarTimeout;
 
-// Show sidebar on hover
-cartContainer.addEventListener('mouseenter', () => {
-    clearTimeout(sidebarTimeout);
-    cartSidebar.classList.add('active');
-    sidebarOverlay.classList.add('active');
-    renderSidebarCart();
-});
+// Only initialize sidebar if elements exist
+if (cartContainer && cartSidebar && sidebarOverlay) {
+    // Show sidebar on hover
+    cartContainer.addEventListener('mouseenter', () => {
+        clearTimeout(sidebarTimeout);
+        cartSidebar.classList.add('active');
+        sidebarOverlay.classList.add('active');
+        renderSidebarCart();
+    });
 
-// Keep sidebar open when hovering over it
-cartSidebar.addEventListener('mouseenter', () => {
-    clearTimeout(sidebarTimeout);
-});
+    // Keep sidebar open when hovering over it
+    cartSidebar.addEventListener('mouseenter', () => {
+        clearTimeout(sidebarTimeout);
+    });
 
-// Hide sidebar when mouse leaves
-cartContainer.addEventListener('mouseleave', () => {
-    sidebarTimeout = setTimeout(() => {
-        if (!cartSidebar.matches(':hover')) {
+    // Hide sidebar when mouse leaves
+    cartContainer.addEventListener('mouseleave', () => {
+        sidebarTimeout = setTimeout(() => {
+            if (!cartSidebar.matches(':hover')) {
+                closeSidebarCart();
+            }
+        }, 300);
+    });
+
+    cartSidebar.addEventListener('mouseleave', () => {
+        sidebarTimeout = setTimeout(() => {
             closeSidebarCart();
-        }
-    }, 300);
-});
+        }, 300);
+    });
 
-cartSidebar.addEventListener('mouseleave', () => {
-    sidebarTimeout = setTimeout(() => {
-        closeSidebarCart();
-    }, 300);
-});
-
-// Close sidebar on overlay click
-sidebarOverlay.addEventListener('click', () => {
-    closeSidebarCart();
-});
-
-// Close sidebar button
-closeSidebar.addEventListener('click', () => {
-    closeSidebarCart();
-});
-
-// View cart button
-viewCartBtn.addEventListener('click', () => {
-    window.location.href = 'cart.html';
-});
-
-// Checkout from sidebar
-checkoutSidebarBtn.addEventListener('click', () => {
-    const session = localStorage.getItem('session') || sessionStorage.getItem('session');
-    
-    if (!session) {
-        closeSidebarCart();
-        const confirmLogin = confirm('Please login to proceed with checkout. Would you like to login now?');
-        if (confirmLogin) {
-            sessionStorage.setItem('redirectAfterLogin', 'cart.html');
-            window.location.href = 'login.html';
-        }
-        return;
+    // Close sidebar on overlay click
+    if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', () => {
+            closeSidebarCart();
+        });
     }
-    
-    window.location.href = 'cart.html';
-});
+
+    // Close sidebar button
+    if (closeSidebar) {
+        closeSidebar.addEventListener('click', () => {
+            closeSidebarCart();
+        });
+    }
+
+    // View cart button
+    if (viewCartBtn) {
+        viewCartBtn.addEventListener('click', () => {
+            window.location.href = 'cart.html';
+        });
+    }
+
+    // Checkout from sidebar
+    if (checkoutSidebarBtn) {
+        checkoutSidebarBtn.addEventListener('click', () => {
+            if (cart.length === 0) {
+                alert('Your cart is empty!');
+                return;
+            }
+
+            const session = localStorage.getItem('session') || sessionStorage.getItem('session');
+            
+            if (!session) {
+                closeSidebarCart();
+                const confirmLogin = confirm('Please login to proceed with checkout. Would you like to login now?');
+                if (confirmLogin) {
+                    sessionStorage.setItem('redirectAfterLogin', 'checkout.html');
+                    window.location.href = 'login.html';
+                }
+                return;
+            }
+            
+            window.location.href = 'checkout.html';
+        });
+    }
+}
 
 function closeSidebarCart() {
     cartSidebar.classList.remove('active');
@@ -504,51 +540,87 @@ document.head.appendChild(style);
 // Initialize cart on page load
 document.addEventListener('DOMContentLoaded', () => {
     initializeCart();
+    
+    // Handle footer account links
+    handleFooterAccountLinks();
 });
 
-// Initialize Swiper Slider
-const swiper = new Swiper('.bannerSwiper', {
-    // Enable loop mode for continuous sliding
-    loop: true,
+// Handle footer account links dynamically
+function handleFooterAccountLinks() {
+    // Find all "Sign In" links in footer
+    const signInLinks = document.querySelectorAll('footer a[href="login.html"]');
     
-    // Autoplay settings
-    autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true,
-    },
+    signInLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const session = localStorage.getItem('session') || sessionStorage.getItem('session');
+            
+            if (session) {
+                // User is logged in, go to profile
+                window.location.href = 'profile.html';
+            } else {
+                // User is not logged in, go to login
+                window.location.href = 'login.html';
+            }
+        });
+    });
     
-    // Smooth transition effect
-    effect: 'fade',
-    fadeEffect: {
-        crossFade: true
-    },
-    
-    // Speed of transition
-    speed: 600,
-    
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    
-    // Pagination bullets
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true,
-    },
-    
-    // Keyboard control
-    keyboard: {
-        enabled: true,
-        onlyInViewport: true,
-    },
-    
-    // Grab cursor
-    grabCursor: true,
-});
+    // Update "Sign In" text to "My Account" if logged in
+    const session = localStorage.getItem('session') || sessionStorage.getItem('session');
+    if (session) {
+        signInLinks.forEach(link => {
+            link.textContent = 'My Account';
+            link.innerHTML = 'My Account';
+        });
+    }
+}
+
+// Initialize Swiper Slider (only if element exists)
+const swiperElement = document.querySelector('.bannerSwiper');
+if (swiperElement && typeof Swiper !== 'undefined') {
+    const swiper = new Swiper('.bannerSwiper', {
+        // Enable loop mode for continuous sliding
+        loop: true,
+        
+        // Autoplay settings
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+        },
+        
+        // Smooth transition effect
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        
+        // Speed of transition
+        speed: 600,
+        
+        // Navigation arrows
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        
+        // Pagination bullets
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            dynamicBullets: true,
+        },
+        
+        // Keyboard control
+        keyboard: {
+            enabled: true,
+            onlyInViewport: true,
+        },
+        
+        // Grab cursor
+        grabCursor: true,
+    });
+}
 
 // Helper function to update sidebar total without re-rendering
 function updateSidebarTotal() {

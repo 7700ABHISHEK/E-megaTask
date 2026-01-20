@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainability - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+
+                <!-- Navigation Links - Desktop -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">About Us</a>
+                    <a href="sustainability.html" class="nav-link text-green-600 font-medium">Sustainability</a>
+                    <a href="index.html#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Shop</a>
+                </div>
+
+                <!-- Account & Cart Buttons -->
+                <div class="flex items-center space-x-4">
+                    <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                        <i class="fas fa-user text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Account</span>
+                    </a>
+                    <a href="cart.html" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                        <i class="fas fa-shopping-cart text-xl"></i>
+                        <span class="hidden sm:inline font-medium">Cart</span>
+                        <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden lg:hidden pb-4">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
+                    <a href="about.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">About Us</a>
+                    <a href="sustainability.html" class="nav-link text-green-600 font-medium py-2">Sustainability</a>
+                    <a href="index.html#kitchen" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Shop</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-green-600 to-green-800 text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <i class="fas fa-leaf text-6xl mb-6"></i>
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">Our Commitment to Sustainability</h1>
+                <p class="text-xl md:text-2xl text-green-100">Building a greener future, one product at a time</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Statement -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-gray-800 mb-6" data-aos="fade-up">Our Mission</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8" data-aos="fade-up" data-aos-delay="100">
+                    At E-megaTask, we believe that every purchase is a vote for the kind of world we want to live in. Our mission is to make sustainable living accessible, affordable, and convenient for everyone. We're committed to reducing environmental impact through every aspect of our business—from product sourcing to packaging and delivery.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Stats -->
+    <section class="py-16 bg-green-600 text-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12" data-aos="fade-up">Our Environmental Impact</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-recycle text-4xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2">500K+</div>
+                    <div class="text-green-100">Plastic Items Avoided</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tree text-4xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2">10K+</div>
+                    <div class="text-green-100">Trees Planted</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-wind text-4xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2">250T</div>
+                    <div class="text-green-100">CO2 Emissions Reduced</div>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-water text-4xl"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2">1M+</div>
+                    <div class="text-green-100">Gallons Water Saved</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Initiatives -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Our Sustainability Initiatives</h2>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <!-- Initiative 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-box text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Sustainable Packaging</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        100% of our packaging is made from recycled or biodegradable materials. We use minimal packaging and encourage customers to reuse or recycle all materials.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span>Plastic-free packaging</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span>Compostable shipping materials</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-green-600 mt-1 mr-2"></i>
+                            <span>Recycled cardboard boxes</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Initiative 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-truck text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Carbon-Neutral Shipping</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        We offset 100% of our shipping emissions through verified carbon offset programs and partner with eco-friendly delivery services.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                            <span>Electric vehicle fleet partnerships</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                            <span>Route optimization for efficiency</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-blue-600 mt-1 mr-2"></i>
+                            <span>Carbon offset investments</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Initiative 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-leaf text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Ethical Sourcing</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Every product is carefully vetted to ensure it meets our strict sustainability and ethical standards. We work directly with certified suppliers.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
+                            <span>Fair trade certified products</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
+                            <span>Organic and natural materials</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-purple-600 mt-1 mr-2"></i>
+                            <span>Transparent supply chains</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Initiative 4 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-solar-panel text-3xl text-yellow-600"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Renewable Energy</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Our warehouses and offices run on 100% renewable energy. We're committed to reducing our carbon footprint at every operational level.
+                    </p>
+                    <ul class="space-y-2 text-gray-600">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-600 mt-1 mr-2"></i>
+                            <span>Solar-powered facilities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-600 mt-1 mr-2"></i>
+                            <span>Energy-efficient operations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-yellow-600 mt-1 mr-2"></i>
+                            <span>LED lighting throughout</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">Our Certifications</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We're proud to be certified by leading environmental and ethical organizations
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-5xl mx-auto">
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-certificate text-4xl text-green-600"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">B Corp Certified</h4>
+                    <p class="text-sm text-gray-600">Meeting highest standards of social and environmental performance</p>
+                </div>
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-award text-4xl text-blue-600"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Carbon Neutral</h4>
+                    <p class="text-sm text-gray-600">Verified carbon neutral operations and shipping</p>
+                </div>
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-handshake text-4xl text-purple-600"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">Fair Trade</h4>
+                    <p class="text-sm text-gray-600">Committed to fair wages and ethical practices</p>
+                </div>
+                <div class="flex flex-col items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-24 h-24 bg-yellow-100 rounded-full flex items-center justify-center mb-4">
+                        <i class="fas fa-seedling text-4xl text-yellow-600"></i>
+                    </div>
+                    <h4 class="font-bold text-gray-800 mb-2">USDA Organic</h4>
+                    <p class="text-sm text-gray-600">Certified organic products and ingredients</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Goals -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">2026 Sustainability Goals</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                We're constantly pushing ourselves to do better for the planet
+            </p>
+            <div class="max-w-4xl mx-auto space-y-6">
+                <!-- Goal 1 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullseye text-green-600 text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Zero Waste Operations</h3>
+                            <p class="text-gray-600 mb-3">Achieve zero waste to landfill across all facilities by end of 2026</p>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-green-600 h-3 rounded-full" style="width: 75%"></div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">75% Complete</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goal 2 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullseye text-blue-600 text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Plant 50,000 Trees</h3>
+                            <p class="text-gray-600 mb-3">Partner with reforestation projects to plant 50,000 trees globally</p>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-blue-600 h-3 rounded-full" style="width: 20%"></div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">20% Complete (10,000 trees planted)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goal 3 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullseye text-purple-600 text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">100% Sustainable Products</h3>
+                            <p class="text-gray-600 mb-3">Ensure every product meets our highest sustainability standards</p>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-purple-600 h-3 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">90% Complete</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Goal 4 -->
+                <div class="bg-white rounded-xl p-6 shadow-lg" data-aos="fade-up" data-aos-delay="400">
+                    <div class="flex items-start gap-4">
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-bullseye text-yellow-600 text-xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="text-xl font-bold text-gray-800 mb-2">Reduce Water Usage by 50%</h3>
+                            <p class="text-gray-600 mb-3">Implement water-saving technologies across all operations</p>
+                            <div class="w-full bg-gray-200 rounded-full h-3">
+                                <div class="bg-yellow-600 h-3 rounded-full" style="width: 60%"></div>
+                            </div>
+                            <p class="text-sm text-gray-500 mt-2">60% Complete</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Impact -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-12" data-aos="fade-up">Community Impact</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-3xl text-green-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Education Programs</h3>
+                    <p class="text-gray-600">Free workshops and resources teaching sustainable living practices to local communities</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hands-helping text-3xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Charity Partnerships</h3>
+                    <p class="text-gray-600">1% of all sales donated to environmental conservation organizations worldwide</p>
+                </div>
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-recycle text-3xl text-purple-600"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Recycling Initiatives</h3>
+                    <p class="text-gray-600">Product take-back program ensuring proper recycling and disposal of old items</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transparency Report -->
+    <section class="py-16 bg-gradient-to-r from-green-600 to-green-800 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+                <i class="fas fa-file-alt text-5xl mb-6"></i>
+                <h2 class="text-3xl font-bold mb-4">Annual Sustainability Report</h2>
+                <p class="text-xl text-green-100 mb-8">
+                    We believe in complete transparency. Download our detailed annual report to see our progress, challenges, and future commitments.
+                </p>
+                <button class="bg-white text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition inline-flex items-center gap-2">
+                    <i class="fas fa-download"></i>
+                    Download 2025 Report
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Us CTA -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Join Our Sustainability Journey</h2>
+                <p class="text-lg text-gray-600 mb-8">
+                    Every purchase you make contributes to a more sustainable future. Together, we can make a real difference.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="index.html" class="bg-green-600 text-white px-8 py-4 rounded-full font-semibold hover:bg-green-700 transition">
+                        Shop Sustainable Products
+                    </a>
+                    <a href="blog.html" class="bg-transparent border-2 border-green-600 text-green-600 px-8 py-4 rounded-full font-semibold hover:bg-green-600 hover:text-white transition">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-8 mb-8">
+                <!-- About Section -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-2 mb-4">
+                        <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-12 w-auto">
+                    </div>
+                    <p class="text-gray-400 text-sm mb-4">Sustainable shopping for a better planet.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-facebook text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-green-500 transition"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-gray-400 hover:text-green-500 transition text-sm">About Us</a></li>
+                        <li><a href="career.html" class="text-gray-400 hover:text-green-500 transition text-sm">Careers</a></li>
+                        <li><a href="press.html" class="text-gray-400 hover:text-green-500 transition text-sm">Press & Media</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-green-500 transition text-sm">Blog</a></li>
+                        <li><a href="testimonials.html" class="text-gray-400 hover:text-green-500 transition text-sm">Testimonials</a></li>
+                        <li><a href="sustainability.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sustainability</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Shop</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html#kitchen" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
+                        <li><a href="index.html#health" class="text-gray-400 hover:text-green-500 transition text-sm">Health</a></li>
+                        <li><a href="index.html#electronics" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
+                        <li><a href="index.html#grocery" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Service -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Support</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">FAQ</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Shipping</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-500 transition text-sm">Returns</a></li>
+                    </ul>
+                </div>
+
+                <!-- My Account -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Account</h3>
+                    <ul class="space-y-2">
+                        <li><a href="login.html" class="text-gray-400 hover:text-green-500 transition text-sm">Sign In</a></li>
+                        <li><a href="signup.html" class="text-gray-400 hover:text-green-500 transition text-sm">Register</a></li>
+                        <li><a href="cart.html" class="text-gray-400 hover:text-green-500 transition text-sm">My Cart</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="pt-6 border-t border-gray-700">
+                <p class="text-gray-500 text-sm text-center">&copy; 2026 E-megaTask. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: true
+        });
+    </script>
+</body>
+</html>
