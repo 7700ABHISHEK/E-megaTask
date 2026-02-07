@@ -25,8 +25,8 @@
                 <!-- Navigation Links - Desktop -->
                 <div class="hidden xl:flex items-center space-x-6">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
-                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Kitchen</a>
-                    <a href="health.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
+                    <a href="home-and-kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home And Kitchen</a>
+                    <a href="health-supplement.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
                     <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Electronics</a>
                     <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Grocery</a>
                     <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Lifestyle</a>
@@ -74,8 +74,8 @@
             <div id="mobileMenu" class="hidden xl:hidden pb-4">
                 <div class="flex flex-col space-y-3">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
-                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Kitchen</a>
-                    <a href="health.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
+                    <a href="home-and-kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home And Kitchen</a>
+                    <a href="health-supplement.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
                     <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Electronics</a>
                     <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Grocery</a>
                     <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Lifestyle</a>
@@ -176,17 +176,18 @@
     <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center text-gray-800 mb-8" data-aos="fade-down">Shop by Category</h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                <!-- Kitchen Category -->
-                <a href="kitchen.html" class="category-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="flex justify-center">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl">
+                <!-- Home And Kitchen Category -->
+                <a href="home-and-kitchen.html" class="category-card" data-aos="fade-up" data-aos-delay="50">
                     <div class="category-icon-wrapper">
-                        <i class="fas fa-utensils text-4xl text-green-600"></i>
+                        <i class="fas fa-home text-4xl text-green-600"></i>
                     </div>
-                    <h3 class="category-title">Kitchen</h3>
+                    <h3 class="category-title">Home And Kitchen</h3>
                 </a>
                 
                 <!-- Health Supplement Category -->
-                <a href="health.html" class="category-card" data-aos="fade-up" data-aos-delay="100">
+                <a href="health-supplement.html" class="category-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="category-icon-wrapper">
                         <i class="fas fa-heartbeat text-4xl text-green-600"></i>
                     </div>
@@ -224,6 +225,7 @@
                     </div>
                     <h3 class="category-title">New Arrivals</h3>
                 </a>
+            </div>
             </div>
         </div>
     </section>
@@ -331,7 +333,7 @@
                     <h3 class="text-lg font-semibold mb-4">Shop</h3>
                     <ul class="space-y-2">
                         <li><a href="kitchen.html" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
-                        <li><a href="health.html" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
+                        <li><a href="health-supplement.html" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
                         <li><a href="electronics.html" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
                         <li><a href="grocery.html" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
                         <li><a href="lifestyle.html" class="text-gray-400 hover:text-green-500 transition text-sm">Lifestyle</a></li>
@@ -420,6 +422,7 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/categories.js"></script>
     <script src="assets/js/products.js"></script>
     <script src="assets/js/main.js"></script>
     <script>

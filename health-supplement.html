@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Grocery - E-megaTask</title>
+    <title>Health Supplement - E-megaTask</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -20,9 +20,9 @@
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
                     <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Kitchen</a>
-                    <a href="health-supplement.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
+                    <a href="health-supplement.html" class="nav-link text-green-600 font-medium transition">Health Supplement</a>
                     <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Electronics</a>
-                    <a href="grocery.html" class="nav-link text-green-600 font-medium transition">Grocery</a>
+                    <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Grocery</a>
                     <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Lifestyle</a>
                 </div>
                 <div class="flex items-center space-x-4">
@@ -46,9 +46,9 @@
                 <div class="flex flex-col space-y-3">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
                     <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Kitchen</a>
-                    <a href="health-supplement.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
+                    <a href="health-supplement.html" class="nav-link text-green-600 font-medium py-2">Health Supplement</a>
                     <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Electronics</a>
-                    <a href="grocery.html" class="nav-link text-green-600 font-medium py-2">Grocery</a>
+                    <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Grocery</a>
                     <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Lifestyle</a>
                 </div>
             </div>
@@ -78,9 +78,9 @@
     <!-- Page Header -->
     <section class="bg-gradient-to-r from-green-600 to-green-700 py-16">
         <div class="container mx-auto px-4 text-center">
-            <i class="fas fa-shopping-basket text-6xl text-white mb-4" data-aos="fade-down"></i>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-up">Organic Grocery</h1>
-            <p class="text-xl text-white opacity-90" data-aos="fade-up" data-aos-delay="100">Fresh organic products for healthy living</p>
+            <i class="fas fa-heartbeat text-6xl text-white mb-4" data-aos="fade-down"></i>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-up">Health Supplements</h1>
+            <p class="text-xl text-white opacity-90" data-aos="fade-up" data-aos-delay="100">Natural supplements for your wellness journey</p>
         </div>
     </section>
 
@@ -97,8 +97,8 @@
     <script>
         AOS.init({ duration: 600, once: false });
         document.addEventListener('DOMContentLoaded', () => {
-            const groceryProducts = products.filter(p => p.category === 'grocery');
-            renderProducts(groceryProducts);
+            const healthProducts = products.filter(p => p.category === 'health');
+            renderProducts(healthProducts);
         });
     </script>
 </body>
@@ -190,13 +190,24 @@
     <script src="assets/js/products.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-        AOS.init({ duration: 600, easing: 'ease-out-cubic', once: false, mirror: true, offset: 50 });
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: false,
+            mirror: true,
+            offset: 50
+        });
+
+        // Filter products for health supplement category (ID 2)
         document.addEventListener('DOMContentLoaded', () => {
             const checkProducts = setInterval(() => {
                 if (typeof products !== 'undefined' && products.length > 0) {
                     clearInterval(checkProducts);
-                    const categoryProducts = products.filter(p => p.categoryId == 4);
-                    if (typeof renderProducts === 'function') renderProducts(categoryProducts);
+                    // Filter by health supplement category (ID 2 based on API)
+                    const healthProducts = products.filter(p => p.categoryId == 2);
+                    if (typeof renderProducts === 'function') {
+                        renderProducts(healthProducts);
+                    }
                 }
             }, 100);
         });

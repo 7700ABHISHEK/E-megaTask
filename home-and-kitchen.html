@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health Supplement - E-megaTask</title>
+    <title>Kitchen - E-megaTask</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -19,8 +19,8 @@
                 </a>
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Home</a>
-                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Kitchen</a>
-                    <a href="health.html" class="nav-link text-green-600 font-medium transition">Health Supplement</a>
+                    <a href="kitchen.html" class="nav-link text-green-600 font-medium transition">Kitchen</a>
+                    <a href="health-supplement.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Health Supplement</a>
                     <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Electronics</a>
                     <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Grocery</a>
                     <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium transition">Lifestyle</a>
@@ -45,8 +45,8 @@
             <div id="mobileMenu" class="hidden lg:hidden pb-4">
                 <div class="flex flex-col space-y-3">
                     <a href="index.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Home</a>
-                    <a href="kitchen.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Kitchen</a>
-                    <a href="health.html" class="nav-link text-green-600 font-medium py-2">Health Supplement</a>
+                    <a href="kitchen.html" class="nav-link text-green-600 font-medium py-2">Kitchen</a>
+                    <a href="health-supplement.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Health Supplement</a>
                     <a href="electronics.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Electronics</a>
                     <a href="grocery.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Grocery</a>
                     <a href="lifestyle.html" class="nav-link text-gray-700 hover:text-green-600 font-medium py-2">Lifestyle</a>
@@ -78,9 +78,9 @@
     <!-- Page Header -->
     <section class="bg-gradient-to-r from-green-600 to-green-700 py-16">
         <div class="container mx-auto px-4 text-center">
-            <i class="fas fa-heartbeat text-6xl text-white mb-4" data-aos="fade-down"></i>
-            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-up">Health Supplements</h1>
-            <p class="text-xl text-white opacity-90" data-aos="fade-up" data-aos-delay="100">Natural supplements for your wellness journey</p>
+            <i class="fas fa-utensils text-6xl text-white mb-4" data-aos="fade-down"></i>
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-4" data-aos="fade-up">Kitchen Essentials</h1>
+            <p class="text-xl text-white opacity-90" data-aos="fade-up" data-aos-delay="100">Eco-friendly kitchen products for sustainable cooking</p>
         </div>
     </section>
 
@@ -97,8 +97,8 @@
     <script>
         AOS.init({ duration: 600, once: false });
         document.addEventListener('DOMContentLoaded', () => {
-            const healthProducts = products.filter(p => p.category === 'health');
-            renderProducts(healthProducts);
+            const kitchenProducts = products.filter(p => p.category === 'kitchen');
+            renderProducts(kitchenProducts);
         });
     </script>
 </body>
@@ -138,7 +138,7 @@
                     <h3 class="text-lg font-semibold mb-4">Shop</h3>
                     <ul class="space-y-2">
                         <li><a href="kitchen.html" class="text-gray-400 hover:text-green-500 transition text-sm">Kitchen</a></li>
-                        <li><a href="health.html" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
+                        <li><a href="health-supplement.html" class="text-gray-400 hover:text-green-500 transition text-sm">Health Supplement</a></li>
                         <li><a href="electronics.html" class="text-gray-400 hover:text-green-500 transition text-sm">Electronics</a></li>
                         <li><a href="grocery.html" class="text-gray-400 hover:text-green-500 transition text-sm">Grocery</a></li>
                         <li><a href="lifestyle.html" class="text-gray-400 hover:text-green-500 transition text-sm">Lifestyle</a></li>
@@ -160,3 +160,58 @@
             </div>
         </div>
     </footer>
+
+    <!-- Cart Sidebar -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h3 class="text-lg font-bold text-gray-800">My Cart</h3>
+            <button id="closeSidebar" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <div id="sidebarCartItems" class="cart-sidebar-items"></div>
+        <div class="cart-sidebar-footer">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-gray-700 font-semibold">Subtotal:</span>
+                <span id="sidebarTotal" class="text-2xl font-bold text-green-600">$0.00</span>
+            </div>
+            <button id="viewCartBtn" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-2">
+                View Cart
+            </button>
+            <button id="checkoutSidebarBtn" class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition">
+                Checkout
+            </button>
+        </div>
+    </div>
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/categories.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: false,
+            mirror: true,
+            offset: 50
+        });
+
+        // Filter products for kitchen category (ID 1)
+        document.addEventListener('DOMContentLoaded', () => {
+            // Wait for products to load
+            const checkProducts = setInterval(() => {
+                if (typeof products !== 'undefined' && products.length > 0) {
+                    clearInterval(checkProducts);
+                    // Filter by kitchen category (ID 1 based on API)
+                    const kitchenProducts = products.filter(p => p.categoryId == 1);
+                    if (typeof renderProducts === 'function') {
+                        renderProducts(kitchenProducts);
+                    }
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

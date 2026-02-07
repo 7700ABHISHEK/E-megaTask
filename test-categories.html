@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category API Test - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 p-8">
+    <div class="max-w-6xl mx-auto">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8">
+            <i class="fas fa-vial text-green-600"></i> Category API Test
+        </h1>
+
+        <!-- API Status -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">API Status</h2>
+            <div id="apiStatus" class="space-y-2">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-spinner fa-spin text-blue-500"></i>
+                    <span>Testing API connection...</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Categories Loaded</h2>
+            <div id="categoriesList" class="space-y-2">
+                <div class="text-gray-500">Loading categories...</div>
+            </div>
+        </div>
+
+        <!-- Category Map -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Category Map (Flat Structure)</h2>
+            <div id="categoryMap" class="space-y-2">
+                <div class="text-gray-500">Building category map...</div>
+            </div>
+        </div>
+
+        <!-- Products -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Products Loaded</h2>
+            <div id="productsList" class="space-y-2">
+                <div class="text-gray-500">Loading products...</div>
+            </div>
+        </div>
+
+        <!-- Category-Product Mapping -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-xl font-semibold text-gray-800 mb-4">Products by Category</h2>
+            <div id="productsByCategory" class="space-y-4">
+                <div class="text-gray-500">Analyzing products...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/categories.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script>
+        // Wait for categories to load
+        setTimeout(() => {
+            testCategories();
+        }, 2000);
+
+        // Wait for products to load
+        setTimeout(() => {
+            testProducts();
+        }, 3000);
+
+        function testCategories() {
+            const apiStatus = document.getElementById('apiStatus');
+            const categoriesList = document.getElementById('categoriesList');
+            const categoryMapDiv = document.getElementById('categoryMap');
+
+            // Check if categories loaded
+            if (window.categoryAPI && window.categoryAPI.categories().length > 0) {
+                const categories = window.categoryAPI.categories();
+                const categoryMap = window.categoryAPI.categoryMap();
+
+                // Update API status
+                apiStatus.innerHTML = `
+                    <div class="flex items-center space-x-2 text-green-600">
+                        <i class="fas fa-check-circle"></i>
+                        <span>API Connected Successfully</span>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-2">
+                        Loaded ${categories.length} categories from https://emegatask.com/GetCategory.ashx
+                    </div>
+                `;
+
+                // Display categories
+                let categoriesHTML = '';
+                categories.forEach(cat => {
+                    const icon = window.categoryAPI.getCategoryIcon(cat.name);
+                    categoriesHTML += `
+                        <div class="border-l-4 border-green-500 pl-4 py-2">
+                            <div class="flex items-center space-x-2">
+                                <i class="fas ${icon} text-green-600"></i>
+                                <span class="font-semibold">${cat.display}</span>
+                                <span class="text-xs text-gray-500">(ID: ${cat.id})</span>
+                            </div>
+                            ${cat.children && cat.children.length > 0 ? `
+                                <div class="ml-6 mt-2 space-y-1">
+                                    ${cat.children.map(child => `
+                                        <div class="text-sm text-gray-600">
+                                            <i class="fas fa-arrow-right text-xs text-gray-400"></i>
+                                            ${child.display} (ID: ${child.id})
+                                            ${child.grandchildren && child.grandchildren.length > 0 ? `
+                                                <div class="ml-6 mt-1 space-y-1">
+                                                    ${child.grandchildren.map(gc => `
+                                                        <div class="text-xs text-gray-500">
+                                                            <i class="fas fa-arrow-right text-xs text-gray-300"></i>
+                                                            ${gc.display} (ID: ${gc.id})
+                                                        </div>
+                                                    `).join('')}
+                                                </div>
+                                            ` : ''}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                });
+                categoriesList.innerHTML = categoriesHTML;
+
+                // Display category map
+                let mapHTML = '<div class="grid grid-cols-1 md:grid-cols-2 gap-4">';
+                Object.entries(categoryMap).forEach(([key, value]) => {
+                    const typeColor = {
+                        'category': 'bg-blue-100 text-blue-800',
+                        'subcategory': 'bg-purple-100 text-purple-800',
+                        'grandchild': 'bg-pink-100 text-pink-800'
+                    }[value.type] || 'bg-gray-100 text-gray-800';
+
+                    mapHTML += `
+                        <div class="border border-gray-200 rounded p-3">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-mono text-xs text-gray-500">${key}</span>
+                                <span class="text-xs px-2 py-1 rounded ${typeColor}">${value.type}</span>
+                            </div>
+                            <div class="text-sm font-semibold">${value.display}</div>
+                            <div class="text-xs text-gray-500 mt-1">Slug: ${value.slug}</div>
+                        </div>
+                    `;
+                });
+                mapHTML += '</div>';
+                categoryMapDiv.innerHTML = mapHTML;
+
+            } else {
+                apiStatus.innerHTML = `
+                    <div class="flex items-center space-x-2 text-red-600">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Failed to load categories</span>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-2">
+                        Check browser console for errors
+                    </div>
+                `;
+                categoriesList.innerHTML = '<div class="text-red-500">No categories loaded</div>';
+                categoryMapDiv.innerHTML = '<div class="text-red-500">Category map not available</div>';
+            }
+        }
+
+        function testProducts() {
+            const productsList = document.getElementById('productsList');
+            const productsByCategory = document.getElementById('productsByCategory');
+
+            if (typeof products !== 'undefined' && products.length > 0) {
+                // Display products summary
+                productsList.innerHTML = `
+                    <div class="flex items-center space-x-2 text-green-600">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Loaded ${products.length} products from API</span>
+                    </div>
+                    <div class="text-sm text-gray-600 mt-2">
+                        Products have categoryId, subcategoryId, and grandchildId fields
+                    </div>
+                `;
+
+                // Group products by category
+                const productsByCategories = {};
+                products.forEach(product => {
+                    const catId = product.categoryId;
+                    if (!productsByCategories[catId]) {
+                        productsByCategories[catId] = [];
+                    }
+                    productsByCategories[catId].push(product);
+                });
+
+                // Display products by category
+                let html = '';
+                Object.entries(productsByCategories).forEach(([catId, prods]) => {
+                    const category = window.categoryAPI ? window.categoryAPI.getCategoryById(catId) : null;
+                    const categoryName = category ? category.display : `Category ${catId}`;
+                    
+                    html += `
+                        <div class="border border-gray-200 rounded p-4">
+                            <div class="flex items-center justify-between mb-3">
+                                <h3 class="font-semibold text-gray-800">${categoryName}</h3>
+                                <span class="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">
+                                    ${prods.length} products
+                                </span>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                ${prods.slice(0, 4).map(p => `
+                                    <div class="text-sm text-gray-600 flex items-start space-x-2">
+                                        <i class="fas fa-box text-xs text-gray-400 mt-1"></i>
+                                        <span>${p.Title}</span>
+                                    </div>
+                                `).join('')}
+                                ${prods.length > 4 ? `
+                                    <div class="text-sm text-gray-500 italic">
+                                        ... and ${prods.length - 4} more
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    `;
+                });
+                productsByCategory.innerHTML = html;
+
+            } else {
+                productsList.innerHTML = `
+                    <div class="flex items-center space-x-2 text-red-600">
+                        <i class="fas fa-times-circle"></i>
+                        <span>Failed to load products</span>
+                    </div>
+                `;
+                productsByCategory.innerHTML = '<div class="text-red-500">No products available</div>';
+            }
+        }
+    </script>
+</body>
+</html>

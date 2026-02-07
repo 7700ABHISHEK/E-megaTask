@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Category - E-megaTask</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Navbar (same as index.html) -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center gap-5 justify-between py-4">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <img src="assets/images/logo.png" alt="E-megaTask Logo" class="h-20 w-auto">
+                </a>
+
+                <div class="hidden xl:flex items-center space-x-6" id="desktopNav">
+                    <!-- Navigation will be dynamically loaded -->
+                </div>
+
+                <div class="hidden xl:flex items-center flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <input 
+                            type="text" 
+                            id="searchInput"
+                            placeholder="Search products..." 
+                            class="w-full px-4 py-2 pr-10 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                        >
+                        <button class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-green-600">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <div id="accountContainer" class="relative">
+                        <a href="profile.html" id="accountBtn" class="flex items-center space-x-2 px-4 py-2 text-gray-700 hover:text-green-600 transition">
+                            <i class="fas fa-user text-xl"></i>
+                            <span class="hidden sm:inline font-medium">Account</span>
+                        </a>
+                    </div>
+                    <div id="cartContainer" class="relative">
+                        <button id="cartBtn" class="relative flex items-center space-x-2 px-4 py-2 bg-green-600 text-white rounded-full hover:bg-green-700 transition">
+                            <i class="fas fa-shopping-cart text-xl"></i>
+                            <span class="hidden sm:inline font-medium">Cart</span>
+                            <span id="cartCount" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-6 w-6 flex items-center justify-center">0</span>
+                        </button>
+                    </div>
+                </div>
+
+                <button id="mobileMenuBtn" class="xl:hidden text-gray-700 text-2xl ml-4">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div id="mobileMenu" class="hidden xl:hidden pb-4">
+                <!-- Mobile menu will be dynamically loaded -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Sidebar (same as index.html) -->
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-sidebar-header">
+            <h3 class="text-lg font-bold text-gray-800">My Cart</h3>
+            <button id="closeSidebar" class="text-gray-500 hover:text-gray-700">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        
+        <div id="sidebarCartItems" class="cart-sidebar-items"></div>
+        
+        <div class="cart-sidebar-footer">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-gray-700 font-semibold">Subtotal:</span>
+                <span id="sidebarTotal" class="text-2xl font-bold text-green-600">$0.00</span>
+            </div>
+            <button id="viewCartBtn" class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition mb-2">
+                View Cart
+            </button>
+            <button id="checkoutSidebarBtn" class="w-full bg-gray-800 text-white py-3 rounded-lg font-semibold hover:bg-gray-900 transition">
+                Checkout
+            </button>
+        </div>
+    </div>
+
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- Breadcrumb -->
+    <section class="bg-gray-100 py-4">
+        <div class="container mx-auto px-4">
+            <nav class="flex items-center space-x-2 text-sm" id="breadcrumb">
+                <a href="index.html" class="text-gray-600 hover:text-green-600">Home</a>
+                <i class="fas fa-chevron-right text-gray-400 text-xs"></i>
+                <span class="text-gray-800 font-medium" id="breadcrumbCategory">Category</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Category Header -->
+    <section class="py-8 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-4" id="categoryTitle">Category</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto" id="categoryDescription">
+                    Explore our collection of products
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subcategories (if available) -->
+    <section class="py-6 bg-gray-50" id="subcategoriesSection" style="display: none;">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Browse by Subcategory</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="subcategoriesGrid">
+                <!-- Subcategories will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center mb-8">
+                <h2 class="text-2xl font-bold text-gray-800">Products</h2>
+                <div class="flex items-center space-x-4">
+                    <select id="sortSelect" class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500">
+                        <option value="default">Sort by</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div id="productsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <!-- Products will be dynamically loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer (same as index.html - simplified for template) -->
+    <footer class="bg-gray-800 text-white py-12 mt-16">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-gray-400">&copy; 2026 E-megaTask. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/categories.js"></script>
+    <script src="assets/js/products.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/category-page.js"></script>
+    <script>
+        AOS.init({
+            duration: 600,
+            easing: 'ease-out-cubic',
+            once: false,
+            mirror: true,
+            offset: 50
+        });
+    </script>
+</body>
+</html>
