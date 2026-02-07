@@ -89,6 +89,26 @@ html {
     font-weight: bold;
 }
 
+.discount-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #dc2626;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+.rewards-section {
+    background: #f9fafb;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
 /* Button Hover Effects */
 button {
     cursor: pointer;
@@ -1569,6 +1589,26 @@ input:focus {
 .category-filter-btn:nth-child(4) { animation-delay: 0.2s; }
 .category-filter-btn:nth-child(5) { animation-delay: 0.25s; }
 .category-filter-btn:nth-child(6) { animation-delay: 0.3s; }
+
+/* Price Display Styles */
+.price-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.original-price {
+    font-size: 1.125rem;
+    color: #9ca3af;
+    text-decoration: line-through;
+    font-weight: 500;
+}
+
+.sale-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #16a34a;
+}
 
 /* Account Dropdown Styles */
 .account-dropdown {

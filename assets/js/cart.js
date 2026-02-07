@@ -151,6 +151,8 @@ function updatePriceSummary() {
     let totalPrice = 0;
     let totalOriginalPrice = 0;
     let totalItems = 0;
+    let totalCashback = 0;
+    let totalPoints = 0;
 
     cart.forEach(item => {
         const itemTotal = item.price * item.quantity;
@@ -160,6 +162,10 @@ function updatePriceSummary() {
         totalPrice += itemTotal;
         totalOriginalPrice += originalTotal;
         totalItems += item.quantity;
+        
+        // Calculate cashback and points (10% cashback and points equal to price)
+        totalCashback += (item.price * 0.10) * item.quantity;
+        totalPoints += Math.round(item.price) * item.quantity;
     });
 
     const discount = totalOriginalPrice - totalPrice;
@@ -179,6 +185,10 @@ function updatePriceSummary() {
     
     document.getElementById('summaryTotal').textContent = `${finalTotal.toFixed(2)}`;
     document.getElementById('totalSavings').textContent = `${discount.toFixed(2)}`;
+    
+    // Update cashback and points
+    document.getElementById('summaryCashback').textContent = `$${totalCashback.toFixed(2)}`;
+    document.getElementById('summaryPoints').textContent = totalPoints;
 }
 
 // Save cart to localStorage
