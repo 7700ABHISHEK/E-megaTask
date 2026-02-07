@@ -4,12 +4,16 @@ let cartCount = 0;
 
 // Initialize cart count on page load
 function initializeCart() {
+    // Reload cart from localStorage
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
     updateCartCountFromCart();
     updateAllProductButtons();
 }
 
 // Update cart count from cart array
 function updateCartCountFromCart() {
+    // Reload cart from localStorage to ensure sync
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
     cartCount = cart.length; // Count unique products, not total quantity
     const cartCountElement = document.getElementById('cartCount');
     if (cartCountElement) {
@@ -30,8 +34,10 @@ function updateCartCountFromCart() {
 
 // Update all product buttons based on cart state
 function updateAllProductButtons() {
+    // Reload cart from localStorage
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
     cart.forEach(item => {
-        updateProductButton(item.id, item.quantity);
+        updateProductButton(String(item.id), item.quantity);
     });
 }
 
@@ -50,40 +56,87 @@ if (mobileMenuBtn && mobileMenu) {
 
 // Add to Cart Function
 function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    if (!product) return;
+    console.log('=== addToCart called ===');
+    console.log('productId:', productId, 'type:', typeof productId);
+    
+    // Ensure productId is a string for consistent comparison
+    productId = String(productId);
+    console.log('productId after String():', productId);
+    
+    // Check if products array exists (from products.js)
+    if (typeof products !== 'undefined') {
+        console.log('products array exists, length:', products.length);
+        
+        const product = products.find(p => String(p.ProductID) === productId);
+        console.log('Found product:', product);
+        
+        if (!product) {
+            console.error('Product not found:', productId);
+            alert('Product not found: ' + productId);
+            return;
+        }
 
-    const existingItem = cart.find(item => item.id === productId);
-    
-    if (existingItem) {
-        existingItem.quantity++;
-        showNotification(`${product.name} quantity increased!`);
-        updateProductButton(productId, existingItem.quantity);
+        // Convert product data to cart format
+        const cartItem = {
+            id: productId,
+            name: product.Title,
+            price: parseFloat(product.DiscountedPrice) / 100,
+            image: product.ImageUrl,
+            sku: productId,
+            quantity: 1
+        };
+        
+        console.log('Cart item created:', cartItem);
+
+        // Reload cart from localStorage to ensure we have the latest data
+        cart = JSON.parse(localStorage.getItem('cart')) || [];
+        console.log('Current cart from localStorage:', cart);
+        
+        const existingItemIndex = cart.findIndex(item => String(item.id) === productId);
+        console.log('Existing item index:', existingItemIndex);
+        
+        if (existingItemIndex !== -1) {
+            cart[existingItemIndex].quantity++;
+            console.log('Increased quantity to:', cart[existingItemIndex].quantity);
+            showNotification(`${cartItem.name} quantity increased!`);
+            updateProductButton(productId, cart[existingItemIndex].quantity);
+        } else {
+            cart.push(cartItem);
+            console.log('Added new item to cart');
+            showNotification(`${cartItem.name} added to cart!`);
+            updateProductButton(productId, 1);
+        }
+        
+        saveCart();
+        console.log('Cart saved to localStorage');
+        console.log('Cart after save:', cart);
+        console.log('LocalStorage value:', localStorage.getItem('cart'));
+        
+        updateCartCountFromCart();
+        
+        // Update sidebar if it's already open (don't auto-open)
+        if (document.getElementById('cartSidebar') && document.getElementById('cartSidebar').classList.contains('active')) {
+            renderSidebarCart();
+        }
     } else {
-        cart.push({ ...product, quantity: 1 });
-        showNotification(`${product.name} added to cart!`);
-        updateProductButton(productId, 1);
-    }
-    
-    updateCartCountFromCart();
-    saveCart();
-    
-    // Update sidebar if it's already open (don't auto-open)
-    if (document.getElementById('cartSidebar').classList.contains('active')) {
-        renderSidebarCart();
+        console.error('Products array not found');
+        alert('Products array not loaded!');
     }
 }
 
 // Increase quantity
 function increaseQuantity(productId) {
-    const item = cart.find(item => item.id === productId);
+    productId = String(productId);
+    // Reload cart from localStorage
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const item = cart.find(item => String(item.id) === productId);
     if (item) {
         item.quantity++;
         updateProductButton(productId, item.quantity);
         saveCart();
         
         // Update sidebar if open without full re-render
-        if (document.getElementById('cartSidebar').classList.contains('active')) {
+        if (document.getElementById('cartSidebar') && document.getElementById('cartSidebar').classList.contains('active')) {
             const sidebarItem = document.querySelector(`[data-product-id="${productId}"]`);
             if (sidebarItem) {
                 const quantityDisplay = sidebarItem.querySelector('.font-semibold.text-gray-800');
@@ -98,14 +151,17 @@ function increaseQuantity(productId) {
 
 // Decrease quantity
 function decreaseQuantity(productId) {
-    const item = cart.find(item => item.id === productId);
+    productId = String(productId);
+    // Reload cart from localStorage
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const item = cart.find(item => String(item.id) === productId);
     if (item && item.quantity > 1) {
         item.quantity--;
         updateProductButton(productId, item.quantity);
         saveCart();
         
         // Update sidebar if open without full re-render
-        if (document.getElementById('cartSidebar').classList.contains('active')) {
+        if (document.getElementById('cartSidebar') && document.getElementById('cartSidebar').classList.contains('active')) {
             const sidebarItem = document.querySelector(`[data-product-id="${productId}"]`);
             if (sidebarItem) {
                 const quantityDisplay = sidebarItem.querySelector('.font-semibold.text-gray-800');
@@ -122,16 +178,19 @@ function decreaseQuantity(productId) {
 
 // Remove from cart
 function removeFromCart(productId) {
-    const item = cart.find(item => item.id === productId);
+    productId = String(productId);
+    // Reload cart from localStorage
+    cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const item = cart.find(item => String(item.id) === productId);
     if (item) {
-        cart = cart.filter(item => item.id !== productId);
+        cart = cart.filter(item => String(item.id) !== productId);
         updateCartCountFromCart();
         updateProductButton(productId, 0);
         saveCart();
         showNotification('Item removed from cart');
         
         // Update sidebar if open
-        if (document.getElementById('cartSidebar').classList.contains('active')) {
+        if (document.getElementById('cartSidebar') && document.getElementById('cartSidebar').classList.contains('active')) {
             renderSidebarCart();
         }
     }
@@ -139,6 +198,7 @@ function removeFromCart(productId) {
 
 // Update product button state
 function updateProductButton(productId, quantity) {
+    productId = String(productId);
     const productCard = document.querySelector(`[data-id="${productId}"]`);
     if (!productCard) return;
 
@@ -147,18 +207,18 @@ function updateProductButton(productId, quantity) {
     if (quantity > 0) {
         buttonContainer.innerHTML = `
             <div class="flex items-center space-x-2">
-                <button onclick="decreaseQuantity(${productId})" class="bg-gray-200 text-gray-700 w-8 h-8 rounded-full hover:bg-gray-300 transition flex items-center justify-center">
+                <button onclick="decreaseQuantity('${productId}')" class="bg-gray-200 text-gray-700 w-8 h-8 rounded-full hover:bg-gray-300 transition flex items-center justify-center">
                     <i class="fas fa-minus text-sm"></i>
                 </button>
                 <span class="font-semibold text-gray-800 min-w-[2rem] text-center">${quantity}</span>
-                <button onclick="increaseQuantity(${productId})" class="bg-green-600 text-white w-8 h-8 rounded-full hover:bg-green-700 transition flex items-center justify-center">
+                <button onclick="increaseQuantity('${productId}')" class="bg-green-600 text-white w-8 h-8 rounded-full hover:bg-green-700 transition flex items-center justify-center">
                     <i class="fas fa-plus text-sm"></i>
                 </button>
             </div>
         `;
     } else {
         buttonContainer.innerHTML = `
-            <button onclick="addToCart(${productId})" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
+            <button onclick="addToCart('${productId}')" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
                 <i class="fas fa-cart-plus"></i> Add
             </button>
         `;
@@ -432,7 +492,8 @@ function renderSidebarCart() {
 
 // Increase quantity from sidebar
 function increaseQuantityFromSidebar(productId) {
-    const item = cart.find(item => item.id === productId);
+    productId = String(productId);
+    const item = cart.find(item => String(item.id) === productId);
     if (item) {
         item.quantity++;
         saveCart();
@@ -455,7 +516,8 @@ function increaseQuantityFromSidebar(productId) {
 
 // Decrease quantity from sidebar
 function decreaseQuantityFromSidebar(productId) {
-    const item = cart.find(item => item.id === productId);
+    productId = String(productId);
+    const item = cart.find(item => String(item.id) === productId);
     if (item && item.quantity > 1) {
         item.quantity--;
         saveCart();
@@ -480,7 +542,8 @@ function decreaseQuantityFromSidebar(productId) {
 
 // Remove item from sidebar
 function removeFromSidebar(productId) {
-    const item = cart.find(item => item.id === productId);
+    productId = String(productId);
+    const item = cart.find(item => String(item.id) === productId);
     if (!item) return;
     
     // Find the sidebar item element
@@ -490,7 +553,7 @@ function removeFromSidebar(productId) {
     }
     
     setTimeout(() => {
-        cart = cart.filter(item => item.id !== productId);
+        cart = cart.filter(item => String(item.id) !== productId);
         updateCartCountFromCart();
         updateProductButton(productId, 0);
         saveCart();

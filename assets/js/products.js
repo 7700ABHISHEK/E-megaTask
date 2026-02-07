@@ -2,252 +2,369 @@
 const products = [
     // Kitchen Products
     {
-        id: 1,
-        name: "Bamboo Kitchen Set",
-        category: "kitchen",
-        price: 26.99,
-        originalPrice: 29.99,
-        image: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=500&fit=crop",
-        description: "Eco-friendly bamboo utensils set for sustainable cooking",
-        eco: true,
-        cashback: 2.70,
-        points: 27
+        "ProductID": "1",
+        "Title": "Bamboo Kitchen Set",
+        "CurrentPrice": "2999",
+        "DiscountedPrice": "2699",
+        "ImageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=500&h=500&fit=crop",
+        "PointValue": "27",
+        "discount": "10",
+        "discountAmt": "300",
+        "cashback": "2.70",
+        "catid": "1",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Eco-friendly bamboo utensils set for sustainable cooking",
+        "category": "kitchen",
+        "eco": true
     },
     {
-        id: 6,
-        name: "Ceramic Cookware Set",
-        category: "kitchen",
-        price: 80.99,
-        originalPrice: 89.99,
-        image: "https://images.unsplash.com/photo-1584990347449-39b4aa02d0f9?w=500&h=500&fit=crop",
-        description: "Non-toxic ceramic coating, PFOA-free cookware",
-        eco: true,
-        cashback: 8.10,
-        points: 81
+        "ProductID": "6",
+        "Title": "Ceramic Cookware Set",
+        "CurrentPrice": "8999",
+        "DiscountedPrice": "8099",
+        "ImageUrl": "https://images.unsplash.com/photo-1584990347449-39b4aa02d0f9?w=500&h=500&fit=crop",
+        "PointValue": "81",
+        "discount": "10",
+        "discountAmt": "900",
+        "cashback": "8.10",
+        "catid": "1",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Non-toxic ceramic coating, PFOA-free cookware",
+        "category": "kitchen",
+        "eco": true
     },
     {
-        id: 9,
-        name: "Stainless Steel Straws",
-        category: "kitchen",
-        price: 13.49,
-        originalPrice: 14.99,
-        image: "https://images.unsplash.com/photo-1600857062241-98e5dba60f2f?w=500&h=500&fit=crop",
-        description: "Reusable metal straws with cleaning brush",
-        eco: true,
-        cashback: 1.35,
-        points: 13
+        "ProductID": "9",
+        "Title": "Stainless Steel Straws",
+        "CurrentPrice": "1499",
+        "DiscountedPrice": "1349",
+        "ImageUrl": "https://images.unsplash.com/photo-1600857062241-98e5dba60f2f?w=500&h=500&fit=crop",
+        "PointValue": "13",
+        "discount": "10",
+        "discountAmt": "150",
+        "cashback": "1.35",
+        "catid": "1",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Reusable metal straws with cleaning brush",
+        "category": "kitchen",
+        "eco": true
     },
     {
-        id: 10,
-        name: "Glass Food Containers",
-        category: "kitchen",
-        price: 31.49,
-        originalPrice: 34.99,
-        image: "https://images.unsplash.com/photo-1584990347449-39b4aa02d0f9?w=500&h=500&fit=crop",
-        description: "BPA-free glass storage containers set",
-        eco: true,
-        cashback: 3.15,
-        points: 31
+        "ProductID": "10",
+        "Title": "Glass Food Containers",
+        "CurrentPrice": "3499",
+        "DiscountedPrice": "3149",
+        "ImageUrl": "https://images.unsplash.com/photo-1584990347449-39b4aa02d0f9?w=500&h=500&fit=crop",
+        "PointValue": "31",
+        "discount": "10",
+        "discountAmt": "350",
+        "cashback": "3.15",
+        "catid": "1",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "BPA-free glass storage containers set",
+        "category": "kitchen",
+        "eco": true
     },
     
     // Health Products
     {
-        id: 2,
-        name: "Organic Protein Powder",
-        category: "health",
-        price: 35.99,
-        originalPrice: 39.99,
-        image: "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=500&h=500&fit=crop",
-        description: "Plant-based protein supplement with natural ingredients",
-        eco: true,
-        cashback: 3.60,
-        points: 36
+        "ProductID": "2",
+        "Title": "Organic Protein Powder",
+        "CurrentPrice": "3999",
+        "DiscountedPrice": "3599",
+        "ImageUrl": "https://images.unsplash.com/photo-1579722821273-0f6c7d44362f?w=500&h=500&fit=crop",
+        "PointValue": "36",
+        "discount": "10",
+        "discountAmt": "400",
+        "cashback": "3.60",
+        "catid": "2",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Plant-based protein supplement with natural ingredients",
+        "category": "health",
+        "eco": true
     },
     {
-        id: 7,
-        name: "Vitamin D3 Supplement",
-        category: "health",
-        price: 17.99,
-        originalPrice: 19.99,
-        image: "https://images.unsplash.com/photo-1550572017-4814c6f5d6c7?w=500&h=500&fit=crop",
-        description: "Natural vitamin D3 from plant sources",
-        eco: true,
-        cashback: 1.80,
-        points: 18
+        "ProductID": "7",
+        "Title": "Vitamin D3 Supplement",
+        "CurrentPrice": "1999",
+        "DiscountedPrice": "1799",
+        "ImageUrl": "https://images.unsplash.com/photo-1550572017-4814c6f5d6c7?w=500&h=500&fit=crop",
+        "PointValue": "18",
+        "discount": "10",
+        "discountAmt": "200",
+        "cashback": "1.80",
+        "catid": "2",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Natural vitamin D3 from plant sources",
+        "category": "health",
+        "eco": true
     },
     {
-        id: 11,
-        name: "Omega-3 Fish Oil",
-        category: "health",
-        price: 25.19,
-        originalPrice: 27.99,
-        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&h=500&fit=crop",
-        description: "Wild-caught fish oil capsules for heart health",
-        eco: true,
-        cashback: 2.52,
-        points: 25
+        "ProductID": "11",
+        "Title": "Omega-3 Fish Oil",
+        "CurrentPrice": "2799",
+        "DiscountedPrice": "2519",
+        "ImageUrl": "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=500&h=500&fit=crop",
+        "PointValue": "25",
+        "discount": "10",
+        "discountAmt": "280",
+        "cashback": "2.52",
+        "catid": "2",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Wild-caught fish oil capsules for heart health",
+        "category": "health",
+        "eco": true
     },
     {
-        id: 12,
-        name: "Herbal Tea Collection",
-        category: "health",
-        price: 20.69,
-        originalPrice: 22.99,
-        image: "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&h=500&fit=crop",
-        description: "Organic herbal tea variety pack",
-        eco: true,
-        cashback: 2.07,
-        points: 21
+        "ProductID": "12",
+        "Title": "Herbal Tea Collection",
+        "CurrentPrice": "2299",
+        "DiscountedPrice": "2069",
+        "ImageUrl": "https://images.unsplash.com/photo-1564890369478-c89ca6d9cde9?w=500&h=500&fit=crop",
+        "PointValue": "21",
+        "discount": "10",
+        "discountAmt": "230",
+        "cashback": "2.07",
+        "catid": "2",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Organic herbal tea variety pack",
+        "category": "health",
+        "eco": true
     },
     
     // Electronics Products
     {
-        id: 3,
-        name: "Solar Power Bank",
-        category: "electronics",
-        price: 44.99,
-        originalPrice: 49.99,
-        image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=500&fit=crop",
-        description: "Portable solar-powered charger for all devices",
-        eco: true,
-        cashback: 4.50,
-        points: 45
+        "ProductID": "3",
+        "Title": "Solar Power Bank",
+        "CurrentPrice": "4999",
+        "DiscountedPrice": "4499",
+        "ImageUrl": "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500&h=500&fit=crop",
+        "PointValue": "45",
+        "discount": "10",
+        "discountAmt": "500",
+        "cashback": "4.50",
+        "catid": "3",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Portable solar-powered charger for all devices",
+        "category": "electronics",
+        "eco": true
     },
     {
-        id: 8,
-        name: "Eco Bluetooth Speaker",
-        category: "electronics",
-        price: 53.99,
-        originalPrice: 59.99,
-        image: "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
-        description: "Wireless speaker made from recycled materials",
-        eco: true,
-        cashback: 5.40,
-        points: 54
+        "ProductID": "8",
+        "Title": "Eco Bluetooth Speaker",
+        "CurrentPrice": "5999",
+        "DiscountedPrice": "5399",
+        "ImageUrl": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500&h=500&fit=crop",
+        "PointValue": "54",
+        "discount": "10",
+        "discountAmt": "600",
+        "cashback": "5.40",
+        "catid": "3",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Wireless speaker made from recycled materials",
+        "category": "electronics",
+        "eco": true
     },
     {
-        id: 13,
-        name: "Bamboo Wireless Charger",
-        category: "electronics",
-        price: 32.39,
-        originalPrice: 35.99,
-        image: "https://images.unsplash.com/photo-1591290619762-c588f7e8e86f?w=500&h=500&fit=crop",
-        description: "Fast wireless charging pad made from bamboo",
-        eco: true,
-        cashback: 3.24,
-        points: 32
+        "ProductID": "13",
+        "Title": "Bamboo Wireless Charger",
+        "CurrentPrice": "3599",
+        "DiscountedPrice": "3239",
+        "ImageUrl": "https://images.unsplash.com/photo-1591290619762-c588f7e8e86f?w=500&h=500&fit=crop",
+        "PointValue": "32",
+        "discount": "10",
+        "discountAmt": "360",
+        "cashback": "3.24",
+        "catid": "3",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Fast wireless charging pad made from bamboo",
+        "category": "electronics",
+        "eco": true
     },
     {
-        id: 14,
-        name: "Recycled Laptop Stand",
-        category: "electronics",
-        price: 40.49,
-        originalPrice: 44.99,
-        image: "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
-        description: "Ergonomic stand made from recycled aluminum",
-        eco: true,
-        cashback: 4.05,
-        points: 40
+        "ProductID": "14",
+        "Title": "Recycled Laptop Stand",
+        "CurrentPrice": "4499",
+        "DiscountedPrice": "4049",
+        "ImageUrl": "https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop",
+        "PointValue": "40",
+        "discount": "10",
+        "discountAmt": "450",
+        "cashback": "4.05",
+        "catid": "3",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Ergonomic stand made from recycled aluminum",
+        "category": "electronics",
+        "eco": true
     },
     
     // Grocery Products
     {
-        id: 4,
-        name: "Organic Quinoa",
-        category: "grocery",
-        price: 11.69,
-        originalPrice: 12.99,
-        image: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&h=500&fit=crop",
-        description: "Premium organic quinoa, sustainably sourced",
-        eco: true,
-        cashback: 1.17,
-        points: 12
+        "ProductID": "4",
+        "Title": "Organic Quinoa",
+        "CurrentPrice": "1299",
+        "DiscountedPrice": "1169",
+        "ImageUrl": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=500&h=500&fit=crop",
+        "PointValue": "12",
+        "discount": "10",
+        "discountAmt": "130",
+        "cashback": "1.17",
+        "catid": "4",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Premium organic quinoa, sustainably sourced",
+        "category": "grocery",
+        "eco": true
     },
     {
-        id: 15,
-        name: "Organic Chia Seeds",
-        category: "grocery",
-        price: 8.99,
-        originalPrice: 9.99,
-        image: "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=500&h=500&fit=crop",
-        description: "Raw organic chia seeds, rich in omega-3",
-        eco: true,
-        cashback: 0.90,
-        points: 9
+        "ProductID": "15",
+        "Title": "Organic Chia Seeds",
+        "CurrentPrice": "999",
+        "DiscountedPrice": "899",
+        "ImageUrl": "https://images.unsplash.com/photo-1606787366850-de6330128bfc?w=500&h=500&fit=crop",
+        "PointValue": "9",
+        "discount": "10",
+        "discountAmt": "100",
+        "cashback": "0.90",
+        "catid": "4",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Raw organic chia seeds, rich in omega-3",
+        "category": "grocery",
+        "eco": true
     },
     {
-        id: 16,
-        name: "Fair Trade Coffee",
-        category: "grocery",
-        price: 15.29,
-        originalPrice: 16.99,
-        image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=500&fit=crop",
-        description: "Ethically sourced organic coffee beans",
-        eco: true,
-        cashback: 1.53,
-        points: 15
+        "ProductID": "16",
+        "Title": "Fair Trade Coffee",
+        "CurrentPrice": "1699",
+        "DiscountedPrice": "1529",
+        "ImageUrl": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=500&h=500&fit=crop",
+        "PointValue": "15",
+        "discount": "10",
+        "discountAmt": "170",
+        "cashback": "1.53",
+        "catid": "4",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Ethically sourced organic coffee beans",
+        "category": "grocery",
+        "eco": true
     },
     {
-        id: 17,
-        name: "Organic Honey",
-        category: "grocery",
-        price: 17.09,
-        originalPrice: 18.99,
-        image: "https://images.unsplash.com/photo-1587049352846-4a222e784acc?w=500&h=500&fit=crop",
-        description: "Raw unfiltered organic honey",
-        eco: true,
-        cashback: 1.71,
-        points: 17
+        "ProductID": "17",
+        "Title": "Organic Honey",
+        "CurrentPrice": "1899",
+        "DiscountedPrice": "1709",
+        "ImageUrl": "https://images.unsplash.com/photo-1587049352846-4a222e784acc?w=500&h=500&fit=crop",
+        "PointValue": "17",
+        "discount": "10",
+        "discountAmt": "190",
+        "cashback": "1.71",
+        "catid": "4",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Raw unfiltered organic honey",
+        "category": "grocery",
+        "eco": true
     },
     
     // Lifestyle Products
     {
-        id: 5,
-        name: "Reusable Water Bottle",
-        category: "lifestyle",
-        price: 22.49,
-        originalPrice: 24.99,
-        image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&h=500&fit=crop",
-        description: "Stainless steel insulated bottle, keeps drinks cold for 24hrs",
-        eco: true,
-        cashback: 2.25,
-        points: 22
+        "ProductID": "5",
+        "Title": "Reusable Water Bottle",
+        "CurrentPrice": "2499",
+        "DiscountedPrice": "2249",
+        "ImageUrl": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=500&h=500&fit=crop",
+        "PointValue": "22",
+        "discount": "10",
+        "discountAmt": "250",
+        "cashback": "2.25",
+        "catid": "5",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Stainless steel insulated bottle, keeps drinks cold for 24hrs",
+        "category": "lifestyle",
+        "eco": true
     },
     {
-        id: 18,
-        name: "Yoga Mat - Cork",
-        category: "lifestyle",
-        price: 49.49,
-        originalPrice: 54.99,
-        image: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop",
-        description: "Natural cork yoga mat with rubber base",
-        eco: true,
-        cashback: 4.95,
-        points: 49
+        "ProductID": "18",
+        "Title": "Yoga Mat - Cork",
+        "CurrentPrice": "5499",
+        "DiscountedPrice": "4949",
+        "ImageUrl": "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?w=500&h=500&fit=crop",
+        "PointValue": "49",
+        "discount": "10",
+        "discountAmt": "550",
+        "cashback": "4.95",
+        "catid": "5",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Natural cork yoga mat with rubber base",
+        "category": "lifestyle",
+        "eco": true
     },
     {
-        id: 19,
-        name: "Organic Cotton Tote Bag",
-        category: "lifestyle",
-        price: 17.99,
-        originalPrice: 19.99,
-        image: "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500&h=500&fit=crop",
-        description: "Reusable shopping bag made from organic cotton",
-        eco: true,
-        cashback: 1.80,
-        points: 18
+        "ProductID": "19",
+        "Title": "Organic Cotton Tote Bag",
+        "CurrentPrice": "1999",
+        "DiscountedPrice": "1799",
+        "ImageUrl": "https://images.unsplash.com/photo-1591195853828-11db59a44f6b?w=500&h=500&fit=crop",
+        "PointValue": "18",
+        "discount": "10",
+        "discountAmt": "200",
+        "cashback": "1.80",
+        "catid": "5",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Reusable shopping bag made from organic cotton",
+        "category": "lifestyle",
+        "eco": true
     },
     {
-        id: 20,
-        name: "Bamboo Sunglasses",
-        category: "lifestyle",
-        price: 38.69,
-        originalPrice: 42.99,
-        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&h=500&fit=crop",
-        description: "Stylish sunglasses with bamboo frames",
-        eco: true,
-        cashback: 3.87,
-        points: 39
+        "ProductID": "20",
+        "Title": "Bamboo Sunglasses",
+        "CurrentPrice": "4299",
+        "DiscountedPrice": "3869",
+        "ImageUrl": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500&h=500&fit=crop",
+        "PointValue": "39",
+        "discount": "10",
+        "discountAmt": "430",
+        "cashback": "3.87",
+        "catid": "5",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Stylish sunglasses with bamboo frames",
+        "category": "lifestyle",
+        "eco": true
+    },
+    {
+        "ProductID": "58",
+        "Title": "Leather belt",
+        "CurrentPrice": "750",
+        "DiscountedPrice": "750",
+        "ImageUrl": "https://emegatask.com/profilepic/8c017de2-7351-4a88-9d58-98120e8863b0.png",
+        "PointValue": "1",
+        "discount": "0",
+        "discountAmt": "0",
+        "cashback": "1.00",
+        "catid": "0",
+        "subcatid": "",
+        "subsubcatid": "",
+        "description": "Premium leather belt",
+        "category": "lifestyle",
+        "eco": false
     }
 ];
 
@@ -289,38 +406,40 @@ function renderProducts(productsToRender = products) {
 
     productsToRender.forEach((product, index) => {
         const delay = Math.min(index * 50, 400);
-        const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
+        const currentPrice = parseFloat(product.CurrentPrice) / 100;
+        const discountedPrice = parseFloat(product.DiscountedPrice) / 100;
+        const discount = parseInt(product.discount) || 0;
         const productCard = `
-            <div class="product-card" data-id="${product.id}" data-aos="fade-up" data-aos-delay="${delay}">
+            <div class="product-card" data-id="${product.ProductID}" data-aos="fade-up" data-aos-delay="${delay}">
                 <div class="relative overflow-hidden">
-                    <img src="${product.image}" alt="${product.name}" class="product-image">
+                    <img src="${product.ImageUrl}" alt="${product.Title}" class="product-image">
                     ${product.eco ? '<span class="eco-badge"><i class="fas fa-leaf"></i> Eco</span>' : ''}
                     ${discount > 0 ? `<span class="discount-badge">${discount}% OFF</span>` : ''}
                 </div>
                 <div class="p-4 flex flex-col flex-grow">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">${product.name}</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">${product.Title}</h3>
                     <p class="text-sm text-gray-600 mb-3">${product.description}</p>
                     
                     <div class="rewards-section mb-3">
                         <div class="flex items-center gap-3 text-xs">
                             <div class="flex items-center gap-1 text-green-600">
                                 <i class="fas fa-coins"></i>
-                                <span class="font-semibold">$${product.cashback.toFixed(2)} Cashback</span>
+                                <span class="font-semibold">$${parseFloat(product.cashback).toFixed(2)} Cashback</span>
                             </div>
                             <div class="flex items-center gap-1 text-purple-600">
                                 <i class="fas fa-star"></i>
-                                <span class="font-semibold">${product.points} Points</span>
+                                <span class="font-semibold">${product.PointValue} Points</span>
                             </div>
                         </div>
                     </div>
                     
                     <div class="flex items-center justify-between mt-auto">
                         <div class="price-container">
-                            ${product.originalPrice ? `<span class="original-price">$${product.originalPrice.toFixed(2)}</span>` : ''}
-                            <span class="sale-price">$${product.price.toFixed(2)}</span>
+                            ${currentPrice !== discountedPrice ? `<span class="original-price">$${currentPrice.toFixed(2)}</span>` : ''}
+                            <span class="sale-price">$${discountedPrice.toFixed(2)}</span>
                         </div>
                         <div class="button-container">
-                            <button onclick="addToCart(${product.id})" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
+                            <button onclick="addToCart('${product.ProductID}')" class="bg-green-600 text-white px-4 py-2 rounded-full hover:bg-green-700 transition">
                                 <i class="fas fa-cart-plus"></i> Add
                             </button>
                         </div>
@@ -338,12 +457,32 @@ function renderProducts(productsToRender = products) {
     }, 100);
 }
 
+// Note: addToCart, increaseQuantity, decreaseQuantity, updateProductButton, 
+// and showNotification functions are defined in main.js
+
+// Update all product buttons based on cart state
+function updateAllProductButtons() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.forEach(item => {
+        if (typeof updateProductButton === 'function') {
+            updateProductButton(item.id, item.quantity);
+        }
+    });
+}
+
 // Initialize products on page load
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
+    
+    // Update cart count on page load
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const cartCountElement = document.getElementById('cartCount');
+    if (cartCountElement) {
+        cartCountElement.textContent = cart.length;
+    }
+    
+    // Update product buttons to reflect cart state
     setTimeout(() => {
-        if (typeof updateAllProductButtons === 'function') {
-            updateAllProductButtons();
-        }
+        updateAllProductButtons();
     }, 100);
 });

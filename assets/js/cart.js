@@ -39,6 +39,11 @@ function renderCart() {
     cart.forEach((item, index) => {
         const originalPrice = item.price * 1.2; // Simulate original price (20% markup)
         const discount = ((originalPrice - item.price) / originalPrice * 100).toFixed(0);
+        const discountAmount = (originalPrice - item.price).toFixed(2);
+        const cashbackAmount = (item.price * 0.10).toFixed(2);
+        const points = Math.round(item.price);
+        
+        console.log('Rendering cart item:', item.name, 'Points:', points, 'Discount:', discountAmount, 'Cashback:', cashbackAmount);
         
         const cartItemHTML = `
             <div class="cart-item" data-index="${index}">
@@ -46,10 +51,13 @@ function renderCart() {
                 <div class="cart-item-details">
                     <div>
                         <h3 class="cart-item-name">${item.name}</h3>
-                        <p class="cart-item-description">${item.description}</p>
+                        <p class="cart-item-sku">SKU: ${item.sku || 'N/A'}</p>
+                        <p class="cart-item-points-info">Points: ${points} x ${item.quantity} = ${points * item.quantity}</p>
+                        <p class="cart-item-discount-info">Discount: Rs ${discountAmount} x ${item.quantity} = Rs ${(discountAmount * item.quantity).toFixed(2)}</p>
+                        <p class="cart-item-cashback-info">Cashback: Rs ${cashbackAmount} x ${item.quantity} = Rs ${(cashbackAmount * item.quantity).toFixed(2)}</p>
                         <div class="cart-item-price">
-                            <span class="current-price">${item.price.toFixed(2)}</span>
-                            <span class="original-price">${originalPrice.toFixed(2)}</span>
+                            <span class="current-price">Rs ${item.price.toFixed(2)}</span>
+                            <span class="original-price">Rs ${originalPrice.toFixed(2)}</span>
                             <span class="discount-badge">${discount}% OFF</span>
                         </div>
                     </div>
@@ -174,17 +182,17 @@ function updatePriceSummary() {
 
     // Update summary elements
     document.getElementById('summaryItemCount').textContent = totalItems;
-    document.getElementById('summaryPrice').textContent = `${totalOriginalPrice.toFixed(2)}`;
-    document.getElementById('summaryDiscount').textContent = `-${discount.toFixed(2)}`;
+    document.getElementById('summaryPrice').textContent = `Rs ${totalOriginalPrice.toFixed(2)}`;
+    document.getElementById('summaryDiscount').textContent = `-Rs ${discount.toFixed(2)}`;
     
     if (deliveryCharge === 0) {
         document.getElementById('summaryDelivery').innerHTML = '<span class="text-green-600">FREE</span>';
     } else {
-        document.getElementById('summaryDelivery').textContent = `${deliveryCharge.toFixed(2)}`;
+        document.getElementById('summaryDelivery').textContent = `Rs ${deliveryCharge.toFixed(2)}`;
     }
     
-    document.getElementById('summaryTotal').textContent = `${finalTotal.toFixed(2)}`;
-    document.getElementById('totalSavings').textContent = `${discount.toFixed(2)}`;
+    document.getElementById('summaryTotal').textContent = `Rs ${finalTotal.toFixed(2)}`;
+    document.getElementById('totalSavings').textContent = `Rs ${discount.toFixed(2)}`;
     
     // Update cashback and points
     document.getElementById('summaryCashback').textContent = `$${totalCashback.toFixed(2)}`;
